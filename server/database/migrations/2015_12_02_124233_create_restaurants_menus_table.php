@@ -20,6 +20,7 @@ class CreateRestaurantsMenusTable extends Migration
             $table->text('description');
             $table->decimal('price', 10, 2);
             $table->string('image', 60);
+            $table->boolean('available');
             $table->boolean('active');
             $table->timestamps();
         });

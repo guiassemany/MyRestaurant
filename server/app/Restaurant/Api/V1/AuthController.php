@@ -7,13 +7,56 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;
 
+use Validator;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+
+
 class AuthController extends BaseController
 {
+
+	use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 	
+	// public function __construct()
+	// {
+	// 	$this->middleware('api.auth', ['only' => 'getAuthenticatedUser']);
+	// }
+
 	public function __construct()
-	{
-		$this->middleware('api.auth', ['only' => 'getAuthenticatedUser']);
-	}
+    {
+        $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+    }
+
+     /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+    }
 
 	public function authenticate(Request $request)
     {
@@ -60,6 +103,5 @@ class AuthController extends BaseController
 	    // the token is valid and we have found the user via the sub claim
 	    return response()->json(compact('user'));
 	}
-
 
 }

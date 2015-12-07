@@ -13,7 +13,7 @@ class RestaurantController extends BaseController
 	public function __construct()
 	{
 		$this->middleware('api.auth');
-		$this->middleware('jwt.refresh');
+		//$this->middleware('jwt.refresh');
 	}
 
     public function index()
