@@ -1,0 +1,12 @@
+<ion-view view-title="{{ 'settings.LANGUAGES' | translate }}" >
+  <ion-content>
+  	<div class="list">
+	  <a class="item" ng-click="translate.changeLanguage('en-us')">
+	    {{ 'settings.ENGLISH_LANG' | translate }}
+	  </a>
+	  <a translate="settings.PTBR_LANG" class="item" ng-click="translate.changeLanguage('pt-br')">
+	    {{ 'settings.PTBR_LANG' | translate }}
+	  </a>
+	</div>
+  </ion-content>
+</ion-view>

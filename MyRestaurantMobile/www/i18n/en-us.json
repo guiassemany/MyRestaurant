@@ -1,0 +1,13 @@
+{
+	"navigation":{
+		"NAVIGATION": "Navigation",
+		"HOME": "Home",
+		"MENU": "Menu",
+		"SETTINGS": "Settings"
+	},
+	"settings":{
+		"LANGUAGES": "Languages",
+		"ENGLISH_LANG": "English",
+		"PTBR_LANG": "Brazilian Portuguese"
+	}
+}
