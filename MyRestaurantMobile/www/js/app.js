@@ -53,7 +53,19 @@ angular.module('myrestaurant', ['ionic', 'myrestaurant.controllers', 'pascalprec
       url: '/menu/category/:categoryId',
       views: {
         'menuContent': {
-          templateUrl: 'templates/menuCategoryItens.html'
+          templateUrl: 'templates/menuCategoryItens.html',
+          controller: 'MenuCategoryItemCtrl',
+          controllerAs: 'category'
+        }
+      }
+    })
+    .state('app.menuItem', {
+      url: '/menu/item/:itemId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/menuItem.html',
+          controller: 'MenuItemCtrl',
+          controllerAs: 'item'
         }
       }
     })

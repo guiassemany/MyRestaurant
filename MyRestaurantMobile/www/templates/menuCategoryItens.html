@@ -1,0 +1,15 @@
+<ion-view view-title="Category Name">
+<ion-header-bar class="bar-light bar-subheader">
+      <input type="search" placeholder="{{'global.SEARCH' | translate}}" data-ng-model="category.searchItem">
+</ion-header-bar>
+  <ion-content>
+    <div class="list">
+    <a ng-repeat="item in filteredItem = ( category.items | filter: category.searchItem )" class="item item-thumbnail-left" ui-sref="app.menuItem">
+      <img src="img/fap-09.jpg">
+      <h2>{{item.title}}</h2>
+      <p>{{item.shortDescription}}</p>
+    </a>  
+    <div ng-show="!filteredItem.length">{{'global.NO_RESULTS_MATCH' | translate}} {{ category.searchItem }}</div>
+</div>
+  </ion-content>
+</ion-view>

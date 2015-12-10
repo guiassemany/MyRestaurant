@@ -1,4 +1,12 @@
 {
+	"global":{
+		"CATEGORY": "Category",
+		"CATEGORIES": "Categories",
+		"PICTURES": "Pictures",
+		"ABOUT": "About",
+		"SEARCH": "Search",
+		"NO_RESULTS_MATCH": "No results found for the keyword: "
+	},
 	"navigation":{
 		"NAVIGATION": "Navigation",
 		"HOME": "Home",
