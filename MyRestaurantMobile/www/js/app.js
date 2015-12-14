@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('myrestaurant', [
-                'ionic', 
+                'ionic',
                 'myrestaurant.controllers',
-                'myrestaurant.services', 
+                'myrestaurant.services',
                 'pascalprecht.translate',
                 'satellizer'
                 ])
@@ -106,7 +106,7 @@ angular.module('myrestaurant', [
     }
   })
   ;
-  
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('app/home');
 
@@ -147,7 +147,8 @@ angular.module('myrestaurant', [
             isFooterFixed: false, // true if you want to initialize the template with fixed footer
             theme: 'theme-1', // indicate the theme chosen for your project
             logo: 'assets/images/logo.png', // relative path of the project logo
-        }
+        },
+        apiUrl: 'http://myrestaurant.dev'
     };
 }])
 .config(function($authProvider) {

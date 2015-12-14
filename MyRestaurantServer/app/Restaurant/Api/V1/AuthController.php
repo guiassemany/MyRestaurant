@@ -17,7 +17,7 @@ class AuthController extends BaseController
 {
 
 	use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-	
+
 	// public function __construct()
 	// {
 	// 	$this->middleware('api.auth', ['only' => 'getAuthenticatedUser']);
@@ -25,7 +25,7 @@ class AuthController extends BaseController
 
 	public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        //$this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**

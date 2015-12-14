@@ -15,4 +15,13 @@ $api->version('v1', function ($api) {
 
 	$api->resource('restaurants', 'Restaurant\Api\V1\RestaurantController');
 
+	// $api->get('newUser', function(){
+	// 		$user = new Restaurant\Models\User;
+	// 		$user->name = 'Guilherme';
+	// 		$user->email = 'guilherme@assemany.com';
+	// 		$user->password = bcrypt('123');
+	// 		$user->save();
+	// 		var_dump($user);
+	// });
+
 });
