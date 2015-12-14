@@ -1,6 +1,6 @@
 {
   "name": "MyRestaurantMobile",
-  "app_id": "",
+  "app_id": "972e89cb",
   "gulpStartupTasks": [
     "sass",
     "watch"

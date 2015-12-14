@@ -22,6 +22,16 @@ $stable:                          #f8f8f8 !default;
   max-height: 70%;
 }
 
+.full-banner {
+  max-width: 100%;
+  /*max-height: 100%; */
+}
+
+.nav-banner {
+  width: 100%; 
+  height: 100px;
+}
+
 .justifyMRA{
 	text-align: justify;
     -moz-text-align-last: justify;

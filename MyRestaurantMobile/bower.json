@@ -6,6 +6,10 @@
   },
   "dependencies": {
     "angular-translate": "~2.8.1",
-    "angular-translate-loader-static-files": "~2.8.1"
+    "angular-translate-loader-static-files": "~2.8.1",
+    "satellizer": "~0.13.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.4"
   }
 }
