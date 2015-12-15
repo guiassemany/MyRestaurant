@@ -1,4 +1,4 @@
-mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 
+mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter',
                   function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -42,7 +42,7 @@ mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth
       // for invalid email and/or password.
       vm.showAlert('global.LOGIN_ERROR_TITLE', 'global.LOGIN_ERROR_MESSAGE');
       vm.loginData.password = null;
-       
+
     });
 
   };
@@ -51,12 +51,16 @@ mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth
     return $state.includes(stateName);
   };
 
+  vm.isAuthenticated = function() {
+    return $auth.isAuthenticated();
+  };
+
   vm.showAlert = function(title, message) {
-         
+
          //Translates title and message
          var titleTranslated = $filter('translate')(title);
          var messageTranslated = $filter('translate')(message);
-         
+
          //Creates the popup
          var alertPopup = $ionicPopup.alert({
            title: titleTranslated,

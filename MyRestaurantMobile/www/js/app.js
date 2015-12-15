@@ -52,7 +52,9 @@ angular.module('myrestaurant', [
       url: '/menu',
       views: {
         'menuContent': {
-          templateUrl: 'templates/menuCategory.html'
+          templateUrl: 'templates/categories.html',
+          controller: 'CategoriesCtrl',
+          controllerAs: 'category'
         }
       }
     })
@@ -60,8 +62,8 @@ angular.module('myrestaurant', [
       url: '/menu/category/:categoryId',
       views: {
         'menuContent': {
-          templateUrl: 'templates/menuCategoryItens.html',
-          controller: 'MenuCategoryItemCtrl',
+          templateUrl: 'templates/category.html',
+          controller: 'CategoryCtrl',
           controllerAs: 'category'
         }
       }
@@ -70,8 +72,8 @@ angular.module('myrestaurant', [
       url: '/menu/item/:itemId',
       views: {
         'menuContent': {
-          templateUrl: 'templates/menuItem.html',
-          controller: 'MenuItemCtrl',
+          templateUrl: 'templates/item.html',
+          controller: 'ItemCtrl',
           controllerAs: 'item'
         }
       }

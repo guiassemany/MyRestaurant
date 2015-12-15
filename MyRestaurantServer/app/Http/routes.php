@@ -15,6 +15,8 @@ $api->version('v1', function ($api) {
 
 	$api->resource('restaurants', 'Restaurant\Api\V1\RestaurantController');
 
+	$api->resource('category', 'Restaurant\Api\V1\CategoryController');
+
 	// $api->get('newUser', function(){
 	// 		$user = new Restaurant\Models\User;
 	// 		$user->name = 'Guilherme';

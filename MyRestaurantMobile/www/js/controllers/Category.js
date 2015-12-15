@@ -1,5 +1,5 @@
-mrc.controller('MenuCategoryItemCtrl', function($scope) {
-	
+mrc.controller('CategoryCtrl', function($scope) {
+
 	var vm = this;
 
 	vm.items = [

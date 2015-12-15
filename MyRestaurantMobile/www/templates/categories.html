@@ -1,0 +1,12 @@
+<ion-view view-title="{{ 'global.CATEGORIES' | translate }}">
+  <ion-content>
+
+    <ion-list>
+      <ion-item ng-repeat="category in category.categories" class="item-thumbnail-left" ui-sref="app.menuCategory">
+        <img ng-src="{{ category.image }}">
+        <h2>{{ category.title }}</h2>
+        <p>{{ category.description }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
