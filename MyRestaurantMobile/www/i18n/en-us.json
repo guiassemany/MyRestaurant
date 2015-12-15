@@ -5,13 +5,16 @@
 		"PICTURES": "Pictures",
 		"ABOUT": "About",
 		"SEARCH": "Search",
-		"NO_RESULTS_MATCH": "No results found for the keyword: "
+		"NO_RESULTS_MATCH": "No results found for the keyword: ",
+		"LOGIN_ERROR_TITLE": "There was an error while trying to login",
+		"LOGIN_ERROR_MESSAGE": "Please, verify your credentials and try again."
 	},
 	"navigation":{
 		"NAVIGATION": "Navigation",
 		"HOME": "Home",
 		"MENU": "Menu",
-		"SETTINGS": "Settings"
+		"SETTINGS": "Settings",
+		"CONTACT": "Contact"
 	},
 	"settings":{
 		"LANGUAGES": "Languages",

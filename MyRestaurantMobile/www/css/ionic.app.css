@@ -32,6 +32,45 @@ $dark:                            #444 !default;
   -moz-text-align-last: justify;
   text-align-last: justify; }
 
+.category-list-full-bg {
+  width: 100%;
+  max-height: 150px;
+  padding: 0 !important;
+  margin: 0 !important; }
+
+.category-list-img {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 150px;
+  position: relative; }
+
+.category-list-text {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  letter-spacing: -1px;
+  background: black;
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  color: #fff;
+  font-weight: bolder;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px !important; }
+
+.category-layer {
+  background: black;
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.7); }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

@@ -1,4 +1,5 @@
-mrc.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $auth, $rootScope) {
+mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 
+                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -7,53 +8,65 @@ mrc.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $auth,
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  var vm = this;
+
   // Form data for the login modals
-  $scope.loginData = {};
+  vm.loginData = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
+    scope: $scope,
+    animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;
+    vm.modal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+  //Triggered in the login modal to close it
+  vm.closeLogin = function() {
+    vm.modal.hide();
   };
 
   // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+  vm.login = function() {
+    vm.modal.show();
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function(provider) {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    /*$timeout(function() {
-      $scope.closeLogin();
-    }, 1000);*/
-    // $auth.authenticate(provider);
-    $auth.login($scope.loginData, {url: $rootScope.app.apiUrl + '/api/auth/authenticate', method: 'POST'})
+  vm.doLogin = function(provider) {
+    $auth.login(vm.loginData, {url: $rootScope.app.apiUrl + '/api/auth/authenticate', method: 'POST'})
     .then(function(response) {
-      //$state.go('app.home');
+      vm.closeLogin();
     })
     .catch(function(response) {
       // Handle errors here, such as displaying a notification
       // for invalid email and/or password.
+      vm.showAlert('global.LOGIN_ERROR_TITLE', 'global.LOGIN_ERROR_MESSAGE');
+      vm.loginData.password = null;
+       
     });
 
   };
 
-  $scope.changeLanguage = function (langKey) {
-    $translate.use(langKey);
-  };
-
-  $scope.isActive = function(stateName){
+  vm.isActive = function(stateName){
     return $state.includes(stateName);
   };
 
-});
+  vm.showAlert = function(title, message) {
+         
+         //Translates title and message
+         var titleTranslated = $filter('translate')(title);
+         var messageTranslated = $filter('translate')(message);
+         
+         //Creates the popup
+         var alertPopup = $ionicPopup.alert({
+           title: titleTranslated,
+           template: messageTranslated
+         });
+
+         //Displays the popup
+         alertPopup.then(function(res) {
+           console.log('Thank you for not eating my delicious ice cream cone');
+         });
+       };
+
+}]);

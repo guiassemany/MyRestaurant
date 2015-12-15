@@ -35,7 +35,8 @@ angular.module('myrestaurant', [
     url: '/app',
     abstract: true,
     templateUrl: 'templates/navigation.html',
-    controller: 'AppCtrl'
+    controller: 'AppCtrl',
+    controllerAs: 'AppCtrl'
   })
 
   .state('app.home', {
