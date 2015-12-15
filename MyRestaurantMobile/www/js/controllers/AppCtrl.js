@@ -37,7 +37,15 @@ mrc.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $auth,
       $scope.closeLogin();
     }, 1000);*/
     // $auth.authenticate(provider);
-    $auth.login($scope.loginData, {url: $rootScope.app.apiUrl + '/api/auth/authenticate', method: 'POST'});
+    $auth.login($scope.loginData, {url: $rootScope.app.apiUrl + '/api/auth/authenticate', method: 'POST'})
+    .then(function(response) {
+      //$state.go('app.home');
+    })
+    .catch(function(response) {
+      // Handle errors here, such as displaying a notification
+      // for invalid email and/or password.
+    });
+
   };
 
   $scope.changeLanguage = function (langKey) {
