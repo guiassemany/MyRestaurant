@@ -4,6 +4,8 @@ namespace Restaurant\Api\V1;
 
 use Restaurant\Models\Category;
 
+use Restaurant\Api\V1\Transformers\CategoryTransformer;
+
 use Dingo\Api\Http\Request;
 
 class CategoryController extends BaseController
@@ -11,13 +13,14 @@ class CategoryController extends BaseController
 
 	public function __construct()
 	{
-		$this->middleware('api.auth');
+		//$this->middleware('api.auth');
 		//$this->middleware('jwt.refresh');
 	}
 
     public function index()
     {
-    	return Category::all();
+    	//return response()->json(Category::all());
+			return $this->response->collection(Category::all(), new CategoryTransformer);
     }
 
     public function store(Request $request)
@@ -29,7 +32,7 @@ class CategoryController extends BaseController
     public function show($id)
     {
     	$categoria = Category::findOrFail($id);
- 			return $categoria;
+ 			return response()->json($categoria);
     }
 
     public function update(Request $request, $id)

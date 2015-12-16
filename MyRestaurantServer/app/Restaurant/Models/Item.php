@@ -22,6 +22,13 @@ class Item extends Model
     protected $fillable = ['category_id', 'title', 'description', 'price', 'image', 'active', 'deliverable'];
 
     /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = ['created_at', 'updated_at'];
+
+    /**
     * Relation with Category Model
     */
     public function category(){
