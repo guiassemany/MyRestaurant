@@ -2,9 +2,8 @@
 
 namespace Restaurant\Api\V1;
 
-Use Restaurant\Models\Category;
+use Restaurant\Models\Category;
 
-//use Illuminate\Http\Request;
 use Dingo\Api\Http\Request;
 
 class CategoryController extends BaseController

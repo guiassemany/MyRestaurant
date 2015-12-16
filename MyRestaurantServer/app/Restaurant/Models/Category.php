@@ -21,4 +21,11 @@ class Category extends Model
      */
     protected $fillable = ['title', 'description', 'image'];
 
+
+    /**
+    * Relation with Items Model
+    */
+    public function items(){
+      return $this->hasMany(\Restaurant\Models\Item::class);
+    }
 }

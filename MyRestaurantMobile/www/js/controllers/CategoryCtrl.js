@@ -19,5 +19,5 @@ mrc.controller('CategoryCtrl', function($scope) {
 
 	vm.clearSearch = function(){
 		vm.searchItem = '';
-	}
+	};
 });

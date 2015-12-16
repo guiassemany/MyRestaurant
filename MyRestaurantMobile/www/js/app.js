@@ -58,7 +58,7 @@ angular.module('myrestaurant', [
         }
       }
     })
-    .state('app.menuCategory', {
+    .state('app.category', {
       url: '/menu/category/:categoryId',
       views: {
         'menuContent': {
@@ -68,7 +68,7 @@ angular.module('myrestaurant', [
         }
       }
     })
-    .state('app.menuItem', {
+    .state('app.item', {
       url: '/menu/item/:itemId',
       views: {
         'menuContent': {
