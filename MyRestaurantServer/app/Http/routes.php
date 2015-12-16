@@ -17,13 +17,13 @@ $api->version('v1', function ($api) {
 	$api->resource('user', 'Restaurant\Api\V1\UserController');
 
 	//Resource for restaurants
-	$api->resource('restaurants', 'Restaurant\Api\V1\RestaurantController');
+	$api->resource('restaurant', 'Restaurant\Api\V1\RestaurantController');
 
 	//Resource for categories
 	$api->resource('category', 'Restaurant\Api\V1\CategoryController');
 
 	//Resource for items
-	$api->resource('item', 'Restaurant\Api\V1\ItemController');
+	$api->resource('category.item', 'Restaurant\Api\V1\ItemController');
 
 
 

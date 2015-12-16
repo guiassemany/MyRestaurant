@@ -25,7 +25,7 @@ class Item extends Model
     * Relation with Category Model
     */
     public function category(){
-      return $this->belongsTo(\Restaurant\Models\Category::class);
+      return $this->belongsTo(\Restaurant\Models\Category::class)->select(['id', 'title']);
     }
 
 }

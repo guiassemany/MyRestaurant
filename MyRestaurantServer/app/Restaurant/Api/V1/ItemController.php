@@ -2,6 +2,7 @@
 
 namespace Restaurant\Api\V1;
 
+use Restaurant\Models\Category;
 use Restaurant\Models\Item;
 
 use Dingo\Api\Http\Request;
@@ -11,39 +12,40 @@ class ItemController extends BaseController
 
 		public function __construct()
 		{
-			$this->middleware('api.auth');
+			//$this->middleware('api.auth');
 			//$this->middleware('jwt.refresh');
 		}
 
-    public function index()
+    public function index($category_id)
     {
-    	return Item::all();
+			$category = Category::findOrFail($category_id);
+			return response()->json($category->items);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $category_id)
     {
-    	$categoria = Item::create($request->all());
+    	$item = Item::create($request->all());
     	return $this->success('Item Criado');
     }
 
-    public function show($id)
+    public function show($category_id, $item_id)
     {
-    	$categoria = Item::findOrFail($id);
- 			return $categoria;
+    	$item = Item::with('category')->findOrFail($item_id);
+			return response()->json($item);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $category_id, $item_id)
     {
-    	$categoria = Item::findOrFail($id);
-    	$categoria->fill($request->all());
-    	$categoria->save();
+    	$item = Item::findOrFail($item_id);
+    	$item->fill($request->all());
+    	$item->save();
     	return $this->success('Item atualizado');
     }
 
-    public function destroy($id)
+    public function destroy($category_id, $item_id)
     {
-    	$categoria = Item::findOrFail($id);
-    	$categoria->delete();
+    	$item = Item::findOrFail($item_id);
+    	$item->delete();
     	return $this->success('Item Excluído');
     }
 
