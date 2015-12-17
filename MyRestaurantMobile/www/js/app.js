@@ -59,7 +59,7 @@ angular.module('myrestaurant', [
       }
     })
     .state('app.category', {
-      url: '/menu/category/:categoryId',
+      url: '/menu/category/:category_name/:category_id',
       views: {
         'menuContent': {
           templateUrl: 'templates/category.html',
@@ -69,7 +69,7 @@ angular.module('myrestaurant', [
       }
     })
     .state('app.item', {
-      url: '/menu/item/:itemId',
+      url: '/menu/item/category/:category_id/item/:item_id',
       views: {
         'menuContent': {
           templateUrl: 'templates/item.html',
@@ -151,7 +151,7 @@ angular.module('myrestaurant', [
             theme: 'theme-1', // indicate the theme chosen for your project
             logo: 'assets/images/logo.png', // relative path of the project logo
         },
-        apiUrl: 'http://myrestaurant.dev'
+        apiUrl: 'http://myrestaurant.dev/api'
     };
 }])
 .config(function($authProvider) {

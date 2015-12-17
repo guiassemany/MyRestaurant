@@ -8,6 +8,8 @@ use Restaurant\Models\Category;
 class CategoryTransformer extends TransformerAbstract
 {
 
+
+
     /**
      * Turn this item object into a generic array
      *

@@ -33,7 +33,7 @@ mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth
 
   // Perform the login action when the user submits the login form
   vm.doLogin = function(provider) {
-    $auth.login(vm.loginData, {url: $rootScope.app.apiUrl + '/api/auth/authenticate', method: 'POST'})
+    $auth.login(vm.loginData, {url: $rootScope.app.apiUrl + '/auth/authenticate', method: 'POST'})
     .then(function(response) {
       vm.closeLogin();
     })

@@ -1,23 +1,20 @@
-mrc.controller('CategoryCtrl', function($scope) {
+mrc.controller('CategoryCtrl', function($scope, $state, $stateParams, $ionicLoading, ItemService) {
 
 	var vm = this;
 
-	vm.items = [
-		{
-			title: "Food 1",
-			shortDescription: "Bla bla bla"
-		},
-		{
-			title: "Food 2",
-			shortDescription: "Bla bla bla"
-		},
-		{
-			title: "Food 3",
-			shortDescription: "Bla bla bla"
-		}
-	];
+  vm.items = [];
+
+	vm.category_name = $stateParams.category_name;
+	vm.category_id = $stateParams.category_id;
+
+	$scope.$on('$ionicView.enter', function(e) {
+			ItemService.getAllItemsByCategoryId(vm.category_id).then(function() {
+		    vm.items = ItemService.data;
+		  });
+	});
 
 	vm.clearSearch = function(){
 		vm.searchItem = '';
 	};
+
 });
