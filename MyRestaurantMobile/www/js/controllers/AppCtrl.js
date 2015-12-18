@@ -1,5 +1,5 @@
-mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter',
-                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter) {
+mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig'
+                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, appConfig) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -33,7 +33,7 @@ mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth
 
   // Perform the login action when the user submits the login form
   vm.doLogin = function(provider) {
-    $auth.login(vm.loginData, {url: $rootScope.app.apiUrl + '/auth/authenticate', method: 'POST'})
+    $auth.login(vm.loginData, {url: appConfig.apiUrl + '/auth/authenticate', method: 'POST'})
     .then(function(response) {
       vm.closeLogin();
     })

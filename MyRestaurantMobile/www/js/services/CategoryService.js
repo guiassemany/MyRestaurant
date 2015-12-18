@@ -1,23 +1,23 @@
-mrs.factory('CategoryService', [ '$http', '$rootScope', '$q', function($http, $rootScope, $q){
+mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'appConfig', function($http, $ionicLoading, appConfig){
 
-  var deffered = $q.defer();
-  var data = [];
-  var CategoryService = {};
-  var apiUrl = $rootScope.app.apiUrl + "/category";
-
-  CategoryService.getAll = function() {
-    $http.get(apiUrl)
-    .success(function (response) {
-      data = response.data;
-      deffered.resolve();
-    });
-    return deffered.promise;
+  // interface
+  var service = {
+      data: [],
+      getAllCategories: getAllCategories
   };
 
-  CategoryService.data = function() {
-    return data;
-  };
+  return service;
 
-  return CategoryService;
+  // implementation
+  function getAllCategories() {
+    var apiUrl = appConfig.apiUrl + "/category";
+    $ionicLoading.show();
+    return $http.get(apiUrl, { cache: true})
+        .success(function(response) {
+            $ionicLoading.hide();
+            service.data = response.data;
+        });
+
+  }
 
 }]);

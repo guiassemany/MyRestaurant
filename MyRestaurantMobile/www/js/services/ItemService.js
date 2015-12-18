@@ -1,4 +1,4 @@
-mrs.factory('ItemService', [ '$http', '$rootScope', '$q', '$ionicLoading', function($http, $rootScope, $q, $ionicLoading){
+mrs.factory('ItemService', [ '$http', '$ionicLoading', 'appConfig', function($http, $ionicLoading, appConfig){
 
   // interface
   var service = {
@@ -11,7 +11,7 @@ mrs.factory('ItemService', [ '$http', '$rootScope', '$q', '$ionicLoading', funct
 
   // implementation
   function getAllItemsByCategoryId(category_id) {
-    var apiUrl = $rootScope.app.apiUrl + "/category/" + category_id + "/item";
+    var apiUrl = appConfig.apiUrl + "/category/" + category_id + "/item";
     $ionicLoading.show();
     return $http.get(apiUrl, { cache: true})
         .success(function(response) {
@@ -22,7 +22,7 @@ mrs.factory('ItemService', [ '$http', '$rootScope', '$q', '$ionicLoading', funct
   }
 
   function getItem(category_id, item_id) {
-    var apiUrl = $rootScope.app.apiUrl + "/category/" + category_id + "/item/" + item_id;
+    var apiUrl = appConfig.apiUrl + "/category/" + category_id + "/item/" + item_id;
     $ionicLoading.show();
     return $http.get(apiUrl, { cache: true})
         .success(function(response) {

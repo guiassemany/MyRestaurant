@@ -1,7 +1,9 @@
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'myrestaurant.controllers' is found in js/modules.js
+(function() {
+'use strict';
+  // angular.module is a global place for creating, registering and retrieving Angular modules
+  // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+  // the 2nd parameter is an array of 'requires'
+  // 'myrestaurant.controllers' is found in js/modules.js
 angular.module('myrestaurant', [
                 'ionic',
                 'myrestaurant.controllers',
@@ -127,31 +129,35 @@ angular.module('myrestaurant', [
   });
 
 })
+.constant('appConfig', {
+    name: 'My Restaurant', // name of your project
+    author: 'Guilherme Assemany', // author's name or company name
+    description: 'Restaurant App', // brief description
+    version: '1.0', // current version
+    year: ((new Date()).getFullYear()), // automatic current year (for copyright information)
+    layout: {
+        isNavbarFixed: true, //true if you want to initialize the template with fixed header
+        isSidebarFixed: true, // true if you want to initialize the template with fixed sidebar
+        isSidebarClosed: false, // true if you want to initialize the template with closed sidebar
+        isFooterFixed: false, // true if you want to initialize the template with fixed footer
+        theme: 'theme-1', // indicate the theme chosen for your project
+        logo: 'assets/images/logo.png', // relative path of the project logo
+    },
+    apiUrl: 'http://myrestaurant.dev/api'
+})
 //App Info
-.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+.run(['$rootScope', '$state', '$stateParams', 'appConfig', function ($rootScope, $state, $stateParams, appConfig) {
 
     // Set some reference to access them from any scope
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
-    // GLOBAL APP SCOPE
-    // set below basic information
+    // GLOBAL APP SCOPE - Get Only necessary info from appConfig constant - Leaving $rootScope as clean as possible
+    // Maybe only values that need to be accesed on the view without going on any controller before
     $rootScope.app = {
-        name: 'My Restaurant', // name of your project
-        author: 'Guilherme Assemany', // author's name or company name
-        description: 'Restaurant App', // brief description
-        version: '1.0', // current version
-        year: ((new Date()).getFullYear()), // automatic current year (for copyright information)
-        layout: {
-            isNavbarFixed: true, //true if you want to initialize the template with fixed header
-            isSidebarFixed: true, // true if you want to initialize the template with fixed sidebar
-            isSidebarClosed: false, // true if you want to initialize the template with closed sidebar
-            isFooterFixed: false, // true if you want to initialize the template with fixed footer
-            theme: 'theme-1', // indicate the theme chosen for your project
-            logo: 'assets/images/logo.png', // relative path of the project logo
-        },
-        apiUrl: 'http://myrestaurant.dev/api'
+        name: appConfig.name,
     };
+
 }])
 //Authentication Settings
 .config(function($authProvider) {
@@ -177,3 +183,4 @@ angular.module('myrestaurant', [
     });
 
   });
+}());
