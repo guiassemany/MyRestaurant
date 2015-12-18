@@ -1,6 +1,5 @@
 <ion-view view-title="{{ 'global.CATEGORIES' | translate }}">
   <ion-content>
-
     <ion-list>
       <ion-item ng-repeat="category in category.categories" class="item-thumbnail-left" ui-sref="app.category({category_name: category.title ,category_id: category.id})">
         <img ng-src="{{ category.image }}">

@@ -10,7 +10,6 @@ mrc.controller('CategoriesCtrl', [ 'CategoryService', function(CategoryService) 
         vm.error = true;
     }
     vm.categories = CategoryService.data;
-    console.log(vm.categories);
   });
 
 }]);

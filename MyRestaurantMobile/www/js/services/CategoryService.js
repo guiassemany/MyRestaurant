@@ -19,7 +19,7 @@ mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'appConfig', '$ionicP
   //Handles success callback
   function success (response){
         $ionicLoading.hide();
-        service.data = response.data;
+        service.data = response.data.data;
   }
 
   //Handles error callback

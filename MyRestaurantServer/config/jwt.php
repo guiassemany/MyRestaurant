@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'user' => 'Restaurant\Models\User',
+    'user' => 'Restaurant\Api\V1\Models\User',
 
     /*
     |--------------------------------------------------------------------------
