@@ -1,4 +1,4 @@
-mrc.controller('AppCtrl',[ '$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig'
+mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig',
                   function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, appConfig) {
 
   // With the new view caching in Ionic, Controllers are only called

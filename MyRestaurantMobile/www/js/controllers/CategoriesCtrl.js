@@ -1,16 +1,16 @@
-mrc.controller('CategoriesCtrl', function($translate, $state, $ionicHistory, $http, CategoryService) {
+mrc.controller('CategoriesCtrl', [ 'CategoryService', function(CategoryService) {
 
   var vm = this;
 
   vm.categories = [];
+  vm.error = false;
 
-  CategoryService.getAll().then(function() {
-    vm.categories = CategoryService.data();
+  CategoryService.getAllCategories().then(function() {
+    if(CategoryService.error){
+        vm.error = true;
+    }
+    vm.categories = CategoryService.data;
+    console.log(vm.categories);
   });
 
-  
-
-
-
-
-});
+}]);

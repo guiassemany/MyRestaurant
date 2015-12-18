@@ -1,4 +1,4 @@
-mrc.controller('ItemCtrl', function($scope, $state, $stateParams, ItemService) {
+mrc.controller('ItemCtrl', [ '$state', '$stateParams', 'ItemService', function($state, $stateParams, ItemService) {
   var vm = this;
 
   vm.item = [];
@@ -11,4 +11,4 @@ mrc.controller('ItemCtrl', function($scope, $state, $stateParams, ItemService) {
     console.log(vm.item);
   });
 
-});
+}]);
