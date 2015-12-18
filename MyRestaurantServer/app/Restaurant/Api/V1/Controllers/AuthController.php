@@ -1,8 +1,8 @@
 <?php
 
-namespace Restaurant\Api\V1;
+namespace Restaurant\Api\V1\Controllers;
 
-Use Restaurant\Models\User;
+Use Restaurant\Api\V1\Models\User;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;

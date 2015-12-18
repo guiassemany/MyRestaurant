@@ -1,8 +1,8 @@
 <?php
 
-namespace Restaurant\Api\V1;
+namespace Restaurant\Api\V1\Controllers;
 
-use Restaurant\Models\Category;
+use Restaurant\Api\V1\Models\Category;
 
 use Restaurant\Api\V1\Transformers\CategoryTransformer;
 

@@ -3,27 +3,27 @@
 //Define Dingo Router
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
+$api->version('v1',["namespace" => "Restaurant\Api\V1\Controllers" ], function ($api) {
 
 	$api->group(['prefix' => 'auth'], function ($api) {
 		//Authentication Routes
-		$api->post('authenticate', ['as' => 'auth.authenticate', 'uses' => 'Restaurant\Api\V1\AuthController@authenticate']);
-		$api->get('user', ['as' => 'user.authenticated', 'uses' => 'Restaurant\Api\V1\AuthController@getAuthenticatedUser']);
+		$api->post('authenticate', ['as' => 'auth.authenticate', 'uses' => 'AuthController@authenticate']);
+		$api->get('user', ['as' => 'user.authenticated', 'uses' => 'AuthController@getAuthenticatedUser']);
 		//Registration Routes
-		$api->post('register', ['as' => 'auth.register', 'uses' => 'Restaurant\Api\V1\AuthController@postRegister']);
+		$api->post('register', ['as' => 'auth.register', 'uses' => 'AuthController@postRegister']);
   });
 
 	//Resource for users
-	$api->resource('user', 'Restaurant\Api\V1\UserController');
+	$api->resource('user', 'UserController');
 
 	//Resource for restaurants
-	$api->resource('restaurant', 'Restaurant\Api\V1\RestaurantController');
+	$api->resource('restaurant', 'RestaurantController');
 
 	//Resource for categories
-	$api->resource('category', 'Restaurant\Api\V1\CategoryController');
+	$api->resource('category', 'CategoryController');
 
 	//Resource for items
-	$api->resource('category.item', 'Restaurant\Api\V1\ItemController');
+	$api->resource('category.item', 'ItemController');
 
 
 

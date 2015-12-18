@@ -3,7 +3,7 @@
 namespace Restaurant\Api\V1\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Restaurant\Models\Category;
+use Restaurant\Api\V1\Models\Category;
 
 class CategoryTransformer extends TransformerAbstract
 {

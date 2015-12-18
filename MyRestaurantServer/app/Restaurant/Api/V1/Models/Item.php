@@ -1,6 +1,6 @@
 <?php
 
-namespace Restaurant\Models;
+namespace Restaurant\Api\V1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,7 +32,7 @@ class Item extends Model
     * Relation with Category Model
     */
     public function category(){
-      return $this->belongsTo(\Restaurant\Models\Category::class)->select(['id', 'title']);
+      return $this->belongsTo(\Restaurant\Api\V1\Models\Category::class)->select(['id', 'title']);
     }
 
 }

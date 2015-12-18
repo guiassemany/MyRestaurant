@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => Restaurant\Models\User::class,
+    'model' => Restaurant\Api\V1\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

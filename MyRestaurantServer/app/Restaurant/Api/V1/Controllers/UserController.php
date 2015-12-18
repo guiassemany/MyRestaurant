@@ -1,8 +1,8 @@
 <?php
 
-namespace Restaurant\Api\V1;
+namespace Restaurant\Api\V1\Controllers;
 
-use Restaurant\Models\User;
+use Restaurant\Api\V1\Models\User;
 use Dingo\Api\Http\Request;
 
 use JWTAuth;

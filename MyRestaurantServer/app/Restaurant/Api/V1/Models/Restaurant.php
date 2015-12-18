@@ -1,12 +1,12 @@
 <?php
 
-namespace Restaurant\Models;
+namespace Restaurant\Api\V1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
-    
+
     /**
      * The database table used by the model.
      *
@@ -20,5 +20,5 @@ class Restaurant extends Model
      * @var array
      */
     protected $fillable = ['name', 'address', 'about'];
-    
+
 }

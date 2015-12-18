@@ -1,6 +1,6 @@
 <?php
 
-namespace Restaurant\Models;
+namespace Restaurant\Api\V1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,6 +32,6 @@ class Category extends Model
     * Relation with Items Model
     */
     public function items(){
-      return $this->hasMany(\Restaurant\Models\Item::class);
+      return $this->hasMany(\Restaurant\Api\V1\Models\Item::class);
     }
 }

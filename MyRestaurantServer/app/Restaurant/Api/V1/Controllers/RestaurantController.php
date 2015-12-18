@@ -1,8 +1,8 @@
 <?php
 
-namespace Restaurant\Api\V1;
+namespace Restaurant\Api\V1\Controllers;
 
-Use Restaurant\Models\Restaurant;
+Use Restaurant\Api\V1\Models\Restaurant;
 
 //use Illuminate\Http\Request;
 use Dingo\Api\Http\Request;
@@ -35,7 +35,7 @@ class RestaurantController extends BaseController
     }
 
     public function update(Request $request, $id)
-    {	
+    {
     	$restaurant = Restaurant::findOrFail($id);
     	$restaurant->fill($request->all());
     	$restaurant->save();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Restaurant\Api\V1;
+namespace Restaurant\Api\V1\Controllers;
 
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
