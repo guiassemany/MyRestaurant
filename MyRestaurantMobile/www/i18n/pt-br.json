@@ -1,13 +1,24 @@
 {
+	"global":{
+		"CATEGORY": "Category",
+		"CATEGORIES": "Categories",
+		"PICTURES": "Pictures",
+		"ABOUT": "About",
+		"SEARCH": "Search",
+		"NO_RESULTS_MATCH": "No results found for the keyword: ",
+		"LOGIN_ERROR_TITLE": "There was an error while trying to login",
+		"LOGIN_ERROR_MESSAGE": "Please, verify your credentials and try again."
+	},
 	"navigation":{
-		"NAVIGATION": "Menu",
-		"HOME": "Início",
-		"MENU": "Cardápio",
-		"SETTINGS": "Configurações"
+		"NAVIGATION": "Navigation",
+		"HOME": "Home",
+		"MENU": "Menu",
+		"SETTINGS": "Settings",
+		"CONTACT": "Contact"
 	},
 	"settings":{
-		"LANGUAGES": "Idiomas",
-		"ENGLISH_LANG": "Inglês",
-		"PTBR_LANG": "Português do Brasil"
+		"LANGUAGES": "Languages",
+		"ENGLISH_LANG": "English",
+		"PTBR_LANG": "Brazilian Portuguese"
 	}
 }

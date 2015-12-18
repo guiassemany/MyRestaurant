@@ -1,9 +1,7 @@
-// Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
+// 'myrestaurant.controllers' is found in js/modules.js
 angular.module('myrestaurant', [
                 'ionic',
                 'myrestaurant.controllers',
@@ -124,11 +122,12 @@ angular.module('myrestaurant', [
 
   //Handle Translation
   $translateProvider.useStaticFilesLoader({
-    prefix: '/i18n/',
+    prefix: 'i18n/',
     suffix: '.json'
   });
 
 })
+//App Info
 .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
 
     // Set some reference to access them from any scope
@@ -154,6 +153,7 @@ angular.module('myrestaurant', [
         apiUrl: 'http://myrestaurant.dev/api'
     };
 }])
+//Authentication Settings
 .config(function($authProvider) {
 
     $authProvider.facebook({
@@ -175,32 +175,5 @@ angular.module('myrestaurant', [
     $authProvider.live({
       clientId: 'Microsoft Client ID'
     });
-
-    // Generic OAuth 2.0
-    // $authProvider.oauth2({
-    //   name: 'MyRestaurantAPI',
-    //   url: 'http://localhost:8000/api/auth/authenticate',
-    //   clientId: null,
-    //   redirectUri: window.location.origin,
-    //   authorizationEndpoint: 'http://localhost:8000/api/auth/authenticate',
-    //   defaultUrlParams: ['response_type', 'client_id', 'redirect_uri'],
-    //   requiredUrlParams: null,
-    //   optionalUrlParams: null,
-    //   scope: null,
-    //   scopePrefix: null,
-    //   scopeDelimiter: null,
-    //   state: null,
-    //   type: 2.0,
-    //   popupOptions: null,
-    //   responseType: 'code',
-    //   responseParams: {
-    //     code: 'code',
-    //     clientId: 'clientId',
-    //     redirectUri: 'redirectUri'
-    //   }
-    // });
-
-
-    // No additional setup required for Twitter
 
   });
