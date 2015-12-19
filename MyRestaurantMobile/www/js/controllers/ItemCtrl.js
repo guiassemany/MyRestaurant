@@ -8,7 +8,6 @@ mrc.controller('ItemCtrl', [ '$state', '$stateParams', 'ItemService', function($
 
   ItemService.getItem(category_id, item_id).then(function() {
     vm.item = ItemService.data;
-    console.log(vm.item);
   });
 
 }]);

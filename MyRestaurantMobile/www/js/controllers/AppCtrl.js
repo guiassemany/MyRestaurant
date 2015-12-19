@@ -35,12 +35,10 @@ mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth
   vm.doLogin = function(provider) {
     $auth.login(vm.loginData, {url: appConfig.apiUrl + '/auth/authenticate', method: 'POST'})
     .then(function(response) {
-      alert('teste');
       console.log(response);
       vm.closeLogin();
     })
     .catch(function(response) {
-      alert('testea');
       // Handle errors here, such as displaying a notification
       // for invalid email and/or password.
       vm.showAlert('global.LOGIN_ERROR_TITLE', 'global.LOGIN_ERROR_MESSAGE');

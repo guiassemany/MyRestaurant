@@ -1,11 +1,12 @@
-<ion-view view-title="{{category.category_name}}">
+<ion-view>
+<ion-nav-title>{{category.category_name}}</ion-nav-title>
 <ion-header-bar class="bar-light bar-subheader">
       <input type="search" placeholder="{{'global.SEARCH' | translate}}" data-ng-model="category.searchItem">
 </ion-header-bar>
   <ion-content>
     <div class="list">
     <a ng-repeat="item in filteredItem = ( category.items | filter: category.searchItem )" class="item item-thumbnail-left" ui-sref="app.item({category_id: category.category_id, item_id: item.id})">
-      <img ng-src="{{item.image}}">
+      <img ng-src="{{item.images.data[0].image}}">
       <h2>{{item.title}}</h2>
       <p>{{item.description}}</p>
     </a>

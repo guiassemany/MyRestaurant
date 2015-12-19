@@ -1,26 +1,23 @@
-<ion-view view-title="{{item.item.title}}" hide-back-button="false">
-
+<ion-view hide-back-button="false">
+			<ion-nav-title>{{item.item.title}}</ion-nav-title>
 	  	<ion-content>
-	  		    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true">
-		  <ion-slide>
+	  	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" ng-if="item.item.images.data">
+		  <ion-slide ng-repeat="image in item.item.images.data">
 		    <div class="box blue">
-		    	<img class="fullscreen-image" src="img/fap-09.jpg" />
-		    </div>
-		  </ion-slide>
-		  <ion-slide>
-		    <div class="box yellow">
-		    	<img class="fullscreen-image" src="img/fap-09.jpg" />
-		    </div>
-		  </ion-slide>
-		  <ion-slide>
-		    <div class="box pink">
-		    	<img class="fullscreen-image" src="img/fap-09.jpg" />
+		    	<img class="fullscreen-image" ng-src="{{image.image}}" />
 		    </div>
 		  </ion-slide>
 		</ion-slide-box>
-		<div class="padding justifyMRA">
-	  	{{item.item.description}}
-	  	</div>
+			<div class="row">
+			  <div class="col" style="text-align: center">
+					<h4>{{item.item.title}}</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col padding justifyMRA">
+	  				{{item.item.description}}
+				</div>
+			</div>
 		</ion-content>
 
  </ion-view>

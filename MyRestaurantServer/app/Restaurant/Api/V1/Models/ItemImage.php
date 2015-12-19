@@ -4,7 +4,7 @@ namespace Restaurant\Api\V1\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class ItemImage extends Model
 {
 
     /**
@@ -12,14 +12,14 @@ class Item extends Model
      *
      * @var string
      */
-    protected $table = 'items';
+    protected $table = 'items_images';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['category_id', 'title', 'description', 'price', 'image', 'active', 'deliverable'];
+    protected $fillable = ['item_id', 'image', 'featured'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,17 +29,18 @@ class Item extends Model
     protected $hidden = ['created_at', 'updated_at'];
 
     /**
-    * Relation with Category Model
+    * Relation with ItemImage Model
     */
-    public function category(){
-      return $this->belongsTo(\Restaurant\Api\V1\Models\Category::class)->select(['id', 'title']);
+    public function item(){
+      return $this->belongsTo(\Restaurant\Api\V1\Models\Item::class);
     }
-
 
     /**
     * Relation with ItemImage Model
     */
-    public function images(){
-      return $this->hasMany(\Restaurant\Api\V1\Models\ItemImage::class, 'item_id', 'id')->select(['id', 'item_id', 'image', 'featured']);
+    public function scopeFiltered($query)
+    {
+        return $query->where('featured', '=', 1);
     }
+
 }

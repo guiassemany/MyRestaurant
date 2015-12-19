@@ -143,7 +143,7 @@ angular.module('myrestaurant', [
         theme: 'theme-1', // indicate the theme chosen for your project
         logo: 'assets/images/logo.png', // relative path of the project logo
     },
-    apiUrl: 'http://localhost:8000/api'
+    apiUrl: 'http://myrestaurant.dev/api'
 })
 //App Info
 .run(['$rootScope', '$state', '$stateParams', 'appConfig', function ($rootScope, $state, $stateParams, appConfig) {
