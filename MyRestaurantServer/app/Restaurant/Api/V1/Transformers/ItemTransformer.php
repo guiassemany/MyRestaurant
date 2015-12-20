@@ -13,7 +13,7 @@ class ItemTransformer extends TransformerAbstract
     *
     * @var array
     */
-    protected $defaultIncludes = [
+    protected $availableIncludes = [
       'images'
     ];
 
