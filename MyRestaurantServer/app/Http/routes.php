@@ -25,6 +25,9 @@ $api->version('v1',["namespace" => "Restaurant\Api\V1\Controllers" ], function (
 	//Resource for items
 	$api->resource('category.item', 'ItemController');
 
+	//Resource for orders
+	$api->resource('orders', 'OrderController');
+
 
 
 	// Quick and Manual tests
