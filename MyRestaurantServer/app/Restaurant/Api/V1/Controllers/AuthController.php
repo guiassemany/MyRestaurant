@@ -6,7 +6,7 @@ Use Restaurant\Api\V1\Models\User;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;
-
+use Auth;
 use Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -73,8 +73,14 @@ class AuthController extends BaseController
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
+				//Get User info
+				$user = Auth::user();
+				$userData = ["name" => $user->name,
+										 "email" => $user->email
+									 ];
+
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json(compact('token', 'userData'));
     }
 
 

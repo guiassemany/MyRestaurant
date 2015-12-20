@@ -1,5 +1,5 @@
-mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig',
-                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, appConfig) {
+mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig', 'UserService',
+                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, appConfig, UserService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -31,11 +31,20 @@ mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth
     vm.modal.show();
   };
 
+  // Logout
+  vm.logout = function() {
+    $auth.logout();
+    $rootScope.$broadcast("deletestate");
+    vm.showAlert('global.LOGOUT_SUCCESS_TITLE', 'global.LOGOUT_SUCCESS_MESSAGE');
+  };
+
   // Perform the login action when the user submits the login form
   vm.doLogin = function(provider) {
     $auth.login(vm.loginData, {url: appConfig.apiUrl + '/auth/authenticate', method: 'POST'})
     .then(function(response) {
       console.log(response);
+      UserService.model = response.data.userData;
+      $rootScope.$broadcast("savestate");
       vm.closeLogin();
     })
     .catch(function(response) {

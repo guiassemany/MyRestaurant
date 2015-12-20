@@ -12,14 +12,17 @@
 		"ACTIVE_ITEM": "Available to Order",
 		"INACTIVE_ITEM": "Unavailable to Order",
 		"DELIVERABLE_ITEM": "Available for delivery",
-		"NOTDELIVERABLE_ITEM": "Not available for delivery"
+		"NOTDELIVERABLE_ITEM": "Not available for delivery",
+		"LOGOUT_SUCCESS_TITLE": "Logged out!",
+		"LOGOUT_SUCCESS_MESSAGE": "Feel free to comeback at any time!"
 	},
 	"navigation":{
 		"NAVIGATION": "Navigation",
 		"HOME": "Home",
 		"MENU": "Menu",
 		"SETTINGS": "Settings",
-		"CONTACT": "Contact"
+		"CONTACT": "Contact",
+		"LOGOUT": "Logout"
 	},
 	"settings":{
 		"LANGUAGES": "Languages",
