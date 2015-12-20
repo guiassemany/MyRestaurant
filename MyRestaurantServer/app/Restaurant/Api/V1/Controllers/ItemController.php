@@ -20,10 +20,7 @@ class ItemController extends BaseController
 
     public function index($category_id)
     {
-			$items = Item::with('images')
-			->where('category_id', $category_id)
-			->get();
-			//return response()->json($category->items);
+			$items = Item::with('images')->where('category_id', $category_id)->get();
 			return $this->response->collection($items, new ItemTransformer);
     }
 

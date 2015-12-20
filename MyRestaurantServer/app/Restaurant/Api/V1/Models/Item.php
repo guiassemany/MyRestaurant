@@ -40,6 +40,8 @@ class Item extends Model
     * Relation with ItemImage Model
     */
     public function images(){
-      return $this->hasMany(\Restaurant\Api\V1\Models\ItemImage::class, 'item_id', 'id')->select(['id', 'item_id', 'image', 'featured']);
+      return $this->hasMany(\Restaurant\Api\V1\Models\ItemImage::class, 'item_id', 'id')
+      ->select(['id', 'item_id', 'image', 'featured'])
+      ->orderBy('items_images.featured', 'desc');;
     }
 }

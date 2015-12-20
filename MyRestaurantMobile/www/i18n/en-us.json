@@ -7,7 +7,12 @@
 		"SEARCH": "Search",
 		"NO_RESULTS_MATCH": "No results found for the keyword: ",
 		"LOGIN_ERROR_TITLE": "There was an error while trying to login",
-		"LOGIN_ERROR_MESSAGE": "Please, verify your credentials and try again."
+		"LOGIN_ERROR_MESSAGE": "Please, verify your credentials and try again.",
+		"PRICE": "Price",
+		"ACTIVE_ITEM": "Available to Order",
+		"INACTIVE_ITEM": "Unavailable to Order",
+		"DELIVERABLE_ITEM": "Available for delivery",
+		"NOTDELIVERABLE_ITEM": "Not available for delivery"
 	},
 	"navigation":{
 		"NAVIGATION": "Navigation",
