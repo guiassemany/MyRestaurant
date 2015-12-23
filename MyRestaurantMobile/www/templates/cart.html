@@ -1,0 +1,31 @@
+<ion-view view-title="{{'global.MY_CART' | translate }}" class="assertive">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+   <button  class="button button-icon icon ion-minus-circled" ng-click="cart.toggleDelete()"></button>
+  </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list show-delete="cart.shouldShowDelete"
+          can-swipe="cart.listCanSwipe">
+  <ion-item ng-repeat="item in cart.CartService.items"
+            class="item-thumbnail-left">
+
+    <img ng-src="{{item.image}}">
+    <h2>{{item.title}}</h2>
+    <p>{{item.price}}</p>
+    <ion-option-button class="button-info"
+                       ng-click="cart.CartService.changeQty(item)">
+      {{ 'global.CHANGE_QTY' | translate }}
+    </ion-option-button>
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="cart.CartService.removeItem(item)">
+    </ion-delete-button>
+
+  </ion-item>
+</ion-list>
+
+  </ion-content>
+</ion-view>

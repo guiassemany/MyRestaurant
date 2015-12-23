@@ -78,7 +78,16 @@ angular.module('myrestaurant', [
         }
       }
     })
-
+    .state('app.cart', {
+      url: '/cart',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/cart.html',
+          controller: 'CartCtrl',
+          controllerAs: 'cart'
+        }
+      }
+    })
     .state('app.contact', {
       url: '/contact',
       views: {

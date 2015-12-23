@@ -1,28 +1,26 @@
-mrs.factory('UserService', ['$rootScope', function ($rootScope) {
+mrs.service('UserService', ['$rootScope', function ($rootScope) {
+    var vm = this;
 
-    var service = {
 
-        model: {
+    vm.model = {
             name: '',
             email: ''
-        },
+            };
 
-        SaveState: function () {
-            localStorage.userService = angular.toJson(service.model);
-        },
+        vm.SaveState = function () {
+            localStorage.userService = angular.toJson(vm.model);
+        };
 
-        RestoreState: function () {
-            service.model = angular.fromJson(localStorage.userService);
-        },
+        vm.RestoreState = function () {
+            vm.model = angular.fromJson(localStorage.userService);
+        };
 
-        DeleteState: function () {
+        vm.DeleteState = function () {
             localStorage.removeItem('userService');
-        }
-    };
+        };
 
-    $rootScope.$on("savestate", service.SaveState);
-    $rootScope.$on("restorestate", service.RestoreState);
-    $rootScope.$on("deletestate", service.DeleteState);
+    $rootScope.$on("savestate", vm.SaveState);
+    $rootScope.$on("restorestate", vm.RestoreState);
+    $rootScope.$on("deletestate", vm.DeleteState);
 
-    return service;
 }]);
