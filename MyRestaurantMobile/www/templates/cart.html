@@ -1,21 +1,14 @@
-<ion-view view-title="{{'global.MY_CART' | translate }}" class="assertive">
-  <ion-nav-bar class="bar-positive">
-    <ion-nav-buttons side="left">
-      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-   <button  class="button button-icon icon ion-minus-circled" ng-click="cart.toggleDelete()"></button>
-  </ion-nav-buttons>
-  </ion-nav-bar>
+<ion-view view-title="{{'global.MY_CART' | translate }}">
   <ion-content>
-    <ion-list show-delete="cart.shouldShowDelete"
+    <ion-list show-delete="cart.CartService.shouldShowDelete"
           can-swipe="cart.listCanSwipe">
-  <ion-item ng-repeat="item in cart.CartService.items"
-            class="item-thumbnail-left">
+  <ion-item ng-repeat="item in cart.CartService.items track by $index"
+            class="item-thumbnail-left" >
 
-    <img ng-src="{{item.image}}">
+    <img ng-src="{{item.image}}" ui-sref="app.item({category_id: item.category_id, item_id: item.id})">
     <h2>{{item.title}}</h2>
-    <p>{{item.price}}</p>
+    <p>{{item.quantity}} X {{item.price}} = {{ item.quantity * item.price | currency}} </p>
+    <p>{{item.description}}</p>
     <ion-option-button class="button-info"
                        ng-click="cart.CartService.changeQty(item)">
       {{ 'global.CHANGE_QTY' | translate }}
@@ -23,9 +16,23 @@
     <ion-delete-button class="ion-minus-circled"
                        ng-click="cart.CartService.removeItem(item)">
     </ion-delete-button>
-
+    <div class="row">
+      <div class="col">
+        Quantidade: {{item.quantity}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-small icon ion-plus" ng-click="cart.CartService.incrementQuanity(item)"></button>
+        <button class="button button-small icon ion-minus" ng-click="cart.CartService.decrementQuanity(item)"></button>
+      </div>
+    </div>
   </ion-item>
 </ion-list>
-
-  </ion-content>
+</ion-content>
+  <div class="bar bar-footer bar-positive">
+  <button class="button button-clear icon-right ion-chevron-right pull-right">
+    {{ 'global.PLACE_ORDER' | translate }}
+  </button>
+</div>
 </ion-view>

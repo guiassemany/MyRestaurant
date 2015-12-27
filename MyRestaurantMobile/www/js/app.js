@@ -151,8 +151,15 @@ angular.module('myrestaurant', [
         isFooterFixed: false, // true if you want to initialize the template with fixed footer
         theme: 'theme-1', // indicate the theme chosen for your project
         logo: 'assets/images/logo.png', // relative path of the project logo
-    },
-    apiUrl: 'http://myrestaurant.dev/api'
+    }
+})
+.constant('apiConfig', {
+  base: 'http://myrestaurant.dev/api',
+  auth: '/auth/authenticate',
+  authUser: '/auth/user',
+  categories: '/category/',
+  items: '/item/',
+  includeImages: '?include=images'
 })
 //App Info
 .run(['$rootScope', '$state', '$stateParams', 'appConfig', function ($rootScope, $state, $stateParams, appConfig) {

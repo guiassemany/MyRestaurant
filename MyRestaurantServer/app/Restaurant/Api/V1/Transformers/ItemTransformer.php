@@ -26,6 +26,7 @@ class ItemTransformer extends TransformerAbstract
     {
         return [
             'id'          => (int) $item->id,
+            'category_id' => (int) $item->category_id,
             'category'    => $item->category->title,
             'title'       => $item->title,
             'description' => $item->description,

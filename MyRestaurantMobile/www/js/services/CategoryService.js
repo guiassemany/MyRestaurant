@@ -1,4 +1,4 @@
-mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'appConfig', '$ionicPopup', function($http, $ionicLoading, appConfig, $ionicPopup){
+mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'apiConfig', '$ionicPopup', function($http, $ionicLoading, apiConfig, $ionicPopup){
 
   // interface
   var service = {
@@ -11,7 +11,7 @@ mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'appConfig', '$ionicP
 
   // implementation
   function getAllCategories() {
-    var apiUrl = appConfig.apiUrl + "/category";
+    var apiUrl = apiConfig.base + apiConfig.categories;
     $ionicLoading.show();
     return $http.get(apiUrl, { cache: true}).then(success, error);
   }

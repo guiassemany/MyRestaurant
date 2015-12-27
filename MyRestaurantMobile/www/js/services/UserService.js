@@ -1,11 +1,8 @@
-mrs.service('UserService', ['$rootScope', function ($rootScope) {
+mrs.service('UserService', ['$rootScope', 'apiConfig', '$http', function ($rootScope, apiConfig, $http) {
     var vm = this;
 
 
-    vm.model = {
-            name: '',
-            email: ''
-            };
+        vm.model = {};
 
         vm.SaveState = function () {
             localStorage.userService = angular.toJson(vm.model);
@@ -17,6 +14,18 @@ mrs.service('UserService', ['$rootScope', function ($rootScope) {
 
         vm.DeleteState = function () {
             localStorage.removeItem('userService');
+        };
+
+        vm.getAuthenticatedUser = function(){
+          var apiUrl = apiConfig.base + apiConfig.authUser;
+          $http.get(apiUrl)
+              .then(function(response) {
+                  console.log(response.data.user);
+
+                  vm.model = response.data.user;
+                  $rootScope.$broadcast("savestate");
+              });
+
         };
 
     $rootScope.$on("savestate", vm.SaveState);

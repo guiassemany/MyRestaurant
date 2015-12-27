@@ -3,6 +3,7 @@
 		"CATEGORY": "Category",
 		"CATEGORIES": "Categories",
 		"PICTURES": "Pictures",
+		"CONTACT": "Contact",
 		"ABOUT": "About",
 		"SEARCH": "Search",
 		"NO_RESULTS_MATCH": "No results found for the keyword: ",
@@ -14,12 +15,17 @@
 		"DELIVERABLE_ITEM": "Available for delivery",
 		"NOTDELIVERABLE_ITEM": "Not available for delivery",
 		"LOGOUT_SUCCESS_TITLE": "Logged out!",
-		"LOGOUT_SUCCESS_MESSAGE": "Feel free to comeback at any time!"
+		"LOGOUT_SUCCESS_MESSAGE": "Feel free to comeback at any time!",
+		"LOGIN_SUCCESS_TITLE": "Hello",
+		"LOGIN_SUCCESS_MESSAGE": "Do whatever you want!",
+		"MY_CART": "Order",
+		"PLACE_ORDER": "Place Order"
 	},
 	"navigation":{
 		"NAVIGATION": "Navigation",
 		"HOME": "Home",
 		"MENU": "Menu",
+		"CART": "Order",
 		"SETTINGS": "Settings",
 		"CONTACT": "Contact",
 		"LOGOUT": "Logout"

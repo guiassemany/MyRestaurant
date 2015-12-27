@@ -1,5 +1,5 @@
-mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'appConfig', 'UserService',
-                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, appConfig, UserService) {
+mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth', '$rootScope', '$ionicPopup', '$filter', 'apiConfig', 'UserService', '$ionicLoading', 'CartService',
+                  function($scope, $ionicModal, $timeout, $state, $auth, $rootScope, $ionicPopup, $filter, apiConfig, UserService, $ionicLoading, CartService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,6 +9,8 @@ mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth
   //});
 
   var vm = this;
+
+  vm.CartService = CartService;
 
   // Form data for the login modals
   vm.loginData = {};
@@ -40,16 +42,19 @@ mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth
 
   // Perform the login action when the user submits the login form
   vm.doLogin = function(provider) {
-    $auth.login(vm.loginData, {url: appConfig.apiUrl + '/auth/authenticate', method: 'POST'})
+    $ionicLoading.show();
+    $auth.login(vm.loginData, {url: apiConfig.base + apiConfig.auth, method: 'POST'})
     .then(function(response) {
-      console.log(response);
-      UserService.model = response.data.userData;
+      UserService.getAuthenticatedUser();
       $rootScope.$broadcast("savestate");
+      vm.showAlert('global.LOGIN_SUCCESS_TITLE', 'global.LOGIN_SUCCESS_MESSAGE');
       vm.closeLogin();
+      $ionicLoading.hide();
     })
     .catch(function(response) {
       // Handle errors here, such as displaying a notification
       // for invalid email and/or password.
+      $ionicLoading.hide();
       vm.showAlert('global.LOGIN_ERROR_TITLE', 'global.LOGIN_ERROR_MESSAGE');
       vm.loginData.password = null;
 
@@ -63,6 +68,10 @@ mrc.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$state', '$auth
 
   vm.isAuthenticated = function() {
     return $auth.isAuthenticated();
+  };
+
+  vm.goToCart = function() {
+    return $state.go('app.cart');
   };
 
   vm.showAlert = function(title, message) {
