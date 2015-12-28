@@ -29,6 +29,29 @@
     </div>
   </ion-item>
 </ion-list>
+<div class="list">
+
+  <a class="item" href="#">
+    Subtotal
+    <span class="item-note">
+      <span class="badge badge-light">{{cart.CartService.totalAmount() | currency}}</span>
+    </span>
+  </a>
+
+  <a class="item" href="#">
+    Shipping
+    <span class="item-note">
+      <span class="badge badge-light">{{5 | currency}}</span>
+    </span>
+  </a>
+
+  <a class="item" href="#">
+    Total
+    <span class="item-note">
+      <span class="badge badge-light">{{cart.CartService.totalAmount() + 5 | currency}}</span>
+    </span>
+  </a>
+</div>
 </ion-content>
   <div class="bar bar-footer bar-positive">
   <button class="button button-clear icon-right ion-chevron-right pull-right">

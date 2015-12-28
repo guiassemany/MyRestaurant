@@ -30,6 +30,14 @@ mrs.service('CartService', ['$rootScope', '$ionicPopup', function ($rootScope, $
       vm.items = [];
     };
 
+    vm.totalAmount = function () {
+      var total = 0;
+       for (var i = 0; i < vm.items.length; i++) {
+              total = total + (vm.items[i].price * vm.items[i].quantity );
+            }
+       return total;
+    };
+
     vm.toggleDelete = function(){
       console.log('fired');
       if(vm.shouldShowDelete === true){

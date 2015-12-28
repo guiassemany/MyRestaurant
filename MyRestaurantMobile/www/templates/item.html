@@ -41,7 +41,20 @@
 			  </a>
 
 			</div>
-			<button class="button button-full icon-right ion-ios-cart button-positive" ng-click="item.cart.addItem(item.item, 1)">{{'global.ADD_TO_CART' | translate}}</button>
+			<div class="row">
+				<div class="col">
+					<div class="list list-inset">
+					  <label class="item item-input">
+					    <input type="text" placeholder="Digite a Quantidade aqui">
+					  </label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<button class="button button-block icon-left ion-ios-cart button-positive" ng-click="item.cart.addItem(item.item, 1)">{{'global.ADD_TO_CART' | translate}}</button>
+				</div>
+			</div>
 		</ion-content>
 
  </ion-view>
