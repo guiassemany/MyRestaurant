@@ -1,20 +1,24 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('ItemController', ItemController);
+(function() {
+    'use strict';
 
-ItemController.$inject = ['$state', '$stateParams', 'ItemService', 'CartService'];
+    angular
+          .module('myrestaurant.controllers')
+          .controller('ItemController', ItemController);
 
-function ItemController($state, $stateParams, ItemService, CartService){
-  var vm = this;
+    ItemController.$inject = ['$state', '$stateParams', 'ItemService', 'CartService'];
 
-  vm.item = [];
+    function ItemController($state, $stateParams, ItemService, CartService){
+      var vm = this;
 
-  vm.cart = CartService;
+      vm.item = [];
 
-  var category_id = $stateParams.category_id;
-  var item_id = $stateParams.item_id;
+      vm.cart = CartService;
 
-  ItemService.getItem(category_id, item_id).then(function() {
-    vm.item = ItemService.data;
-  });
-}
+      var category_id = $stateParams.category_id;
+      var item_id = $stateParams.item_id;
+
+      ItemService.getItem(category_id, item_id).then(function() {
+        vm.item = ItemService.data;
+      });
+    }
+})();

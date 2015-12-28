@@ -1,9 +1,13 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('ContactController', ContactController);
+(function() {
+    'use strict';
+    
+    angular
+          .module('myrestaurant.controllers')
+          .controller('ContactController', ContactController);
 
-ContactController.$inject = ['$scope'];
+    ContactController.$inject = ['$scope'];
 
-function ContactController(){
-    var vm = this;
-}
+    function ContactController(){
+        var vm = this;
+    }
+})();

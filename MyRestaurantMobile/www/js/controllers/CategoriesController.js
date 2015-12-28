@@ -1,19 +1,23 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('CategoriesController', CategoriesController);
+(function() {
+    'use strict';
+    
+    angular
+          .module('myrestaurant.controllers')
+          .controller('CategoriesController', CategoriesController);
 
-CategoriesController.$inject = ['CategoryService'];
+    CategoriesController.$inject = ['CategoryService'];
 
-function CategoriesController(CategoryService){
-  var vm = this;
+    function CategoriesController(CategoryService){
+      var vm = this;
 
-  vm.categories = [];
-  vm.error = false;
+      vm.categories = [];
+      vm.error = false;
 
-  CategoryService.getAllCategories().then(function() {
-    if(CategoryService.error){
-        vm.error = true;
+      CategoryService.getAllCategories().then(function() {
+        if(CategoryService.error){
+            vm.error = true;
+        }
+        vm.categories = CategoryService.data;
+      });
     }
-    vm.categories = CategoryService.data;
-  });
-}
+})();

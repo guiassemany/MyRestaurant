@@ -1,9 +1,13 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('SettingsController', SettingsController);
+(function() {
+    'use strict';
 
-SettingsController.$inject = [];
+    angular
+          .module('myrestaurant.controllers')
+          .controller('SettingsController', SettingsController);
 
-function SettingsController(){
-    var vm = this;
-}
+    SettingsController.$inject = [];
+
+    function SettingsController(){
+        var vm = this;
+    }
+})();

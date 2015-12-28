@@ -1,19 +1,23 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('AppController', AppController);
+(function() {
+    'use strict';
 
-AppController.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
+    angular
+          .module('myrestaurant.controllers')
+          .controller('AppController', AppController);
 
-function AppController($state, $auth, $rootScope, CartService, LoginService){
-  var vm = this;
+    AppController.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
 
-  vm.CartService = CartService;
-  vm.LoginService = LoginService;
-  vm.isActive = isActive;
+    function AppController($state, $auth, $rootScope, CartService, LoginService){
+      var vm = this;
 
-  //For navigation purposes
-  function isActive(stateName){
-    return $state.includes(stateName);
-  }
+      vm.CartService = CartService;
+      vm.LoginService = LoginService;
+      vm.isActive = isActive;
 
-}
+      //For navigation purposes
+      function isActive(stateName){
+        return $state.includes(stateName);
+      }
+
+    }
+})();

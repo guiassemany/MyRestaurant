@@ -1,23 +1,27 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('TranslateController', TranslateController);
+(function() {
+    'use strict';
 
-TranslateController.$inject = ['$translate', '$state', '$ionicHistory'];
+    angular
+          .module('myrestaurant.controllers')
+          .controller('TranslateController', TranslateController);
 
-function TranslateController($translate, $state, $ionicHistory){
-  var vm = this;
+    TranslateController.$inject = ['$translate', '$state', '$ionicHistory'];
 
-  vm.changeLanguage = changeLanguage;
+    function TranslateController($translate, $state, $ionicHistory){
+      var vm = this;
 
-  function changeLanguage (langKey) {
-    $translate.use(langKey);
+      vm.changeLanguage = changeLanguage;
 
-    $ionicHistory.nextViewOptions({
-	    disableBack: true
-  	});
+      function changeLanguage (langKey) {
+        $translate.use(langKey);
 
-    $state.go('app.home');
+        $ionicHistory.nextViewOptions({
+    	    disableBack: true
+      	});
 
-  }
+        $state.go('app.home');
 
-}
+      }
+
+    }
+})();

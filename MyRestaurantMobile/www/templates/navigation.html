@@ -9,8 +9,8 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-           <button  class="button button-icon icon ion-bag righthd-icon" ui-sref="app.cart" ng-hide="AppCtrl.isActive('app.cart')"></button>
-           <button  class="button button-icon icon ion-minus-circled" ng-click="AppCtrl.CartService.toggleDelete()" ng-show="AppCtrl.isActive('app.cart')"></button>
+           <button  class="button button-icon icon ion-bag righthd-icon" ui-sref="app.cart" ng-hide="AppController.isActive('app.cart')"></button>
+           <button  class="button button-icon icon ion-minus-circled" ng-click="AppController.CartService.toggleDelete()" ng-show="AppController.isActive('app.cart')"></button>
        </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>

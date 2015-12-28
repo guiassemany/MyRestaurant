@@ -1,10 +1,14 @@
-angular
-      .module('myrestaurant.controllers')
-      .controller('LoginController', LoginController);
+(function() {
+    'use strict';
 
-LoginController.$inject = ['LoginService'];
+    angular
+          .module('myrestaurant.controllers')
+          .controller('LoginController', LoginController);
 
-function LoginController(LoginService){
-  var vm = this;
-  vm.LoginService = LoginService;
-}
+    LoginController.$inject = ['LoginService'];
+
+    function LoginController(LoginService){
+      var vm = this;
+      vm.LoginService = LoginService;
+    }
+})();
