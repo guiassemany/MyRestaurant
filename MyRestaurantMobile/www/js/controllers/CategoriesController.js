@@ -1,10 +1,10 @@
 angular
       .module('myrestaurant.controllers')
-      .controller('CategoriesCtrl', CategoriesCtrl);
+      .controller('CategoriesController', CategoriesController);
 
-CategoriesCtrl.$inject = ['CategoryService'];
+CategoriesController.$inject = ['CategoryService'];
 
-function CategoriesCtrl(CategoryService){
+function CategoriesController(CategoryService){
   var vm = this;
 
   vm.categories = [];

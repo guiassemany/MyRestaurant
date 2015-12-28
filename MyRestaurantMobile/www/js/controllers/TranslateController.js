@@ -1,10 +1,10 @@
 angular
       .module('myrestaurant.controllers')
-      .controller('TranslateCtrl', TranslateCtrl);
+      .controller('TranslateController', TranslateController);
 
-TranslateCtrl.$inject = ['$translate', '$state', '$ionicHistory'];
+TranslateController.$inject = ['$translate', '$state', '$ionicHistory'];
 
-function TranslateCtrl($translate, $state, $ionicHistory){
+function TranslateController($translate, $state, $ionicHistory){
   var vm = this;
 
   vm.changeLanguage = changeLanguage;

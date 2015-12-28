@@ -1,10 +1,10 @@
 angular
 			.module('myrestaurant.controllers')
-			.controller('CategoryCtrl', CategoryCtrl);
+			.controller('CategoryController', CategoryController);
 
-CategoryCtrl.$inject = ['$scope', '$state', '$stateParams', '$ionicLoading', 'ItemService'];
+CategoryController.$inject = ['$scope', '$state', '$stateParams', '$ionicLoading', 'ItemService'];
 
-function CategoryCtrl($scope, $state, $stateParams, $ionicLoading, ItemService){
+function CategoryController($scope, $state, $stateParams, $ionicLoading, ItemService){
 	var vm = this;
 
   vm.items = [];

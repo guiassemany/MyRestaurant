@@ -35,8 +35,8 @@ angular.module('myrestaurant', [
     url: '/app',
     abstract: true,
     templateUrl: 'templates/navigation.html',
-    controller: 'AppCtrl',
-    controllerAs: 'AppCtrl'
+    controller: 'AppController',
+    controllerAs: 'AppController'
   })
 
   .state('app.home', {
@@ -53,7 +53,7 @@ angular.module('myrestaurant', [
       views: {
         'menuContent': {
           templateUrl: 'templates/categories.html',
-          controller: 'CategoriesCtrl',
+          controller: 'CategoriesController',
           controllerAs: 'category'
         }
       }
@@ -63,7 +63,7 @@ angular.module('myrestaurant', [
       views: {
         'menuContent': {
           templateUrl: 'templates/category.html',
-          controller: 'CategoryCtrl',
+          controller: 'CategoryController',
           controllerAs: 'category'
         }
       }
@@ -73,7 +73,7 @@ angular.module('myrestaurant', [
       views: {
         'menuContent': {
           templateUrl: 'templates/item.html',
-          controller: 'ItemCtrl',
+          controller: 'ItemController',
           controllerAs: 'item'
         }
       }
@@ -83,7 +83,7 @@ angular.module('myrestaurant', [
       views: {
         'menuContent': {
           templateUrl: 'templates/cart.html',
-          controller: 'CartCtrl',
+          controller: 'CartController',
           controllerAs: 'cart'
         }
       }
@@ -93,7 +93,7 @@ angular.module('myrestaurant', [
       views: {
         'menuContent': {
           templateUrl: 'templates/contact.html',
-          controller: 'ContactCtrl',
+          controller: 'ContactController',
           controllerAs: 'contact'
         }
       }
@@ -103,7 +103,7 @@ angular.module('myrestaurant', [
     views: {
       'menuContent': {
         templateUrl: 'templates/settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsController'
       }
     }
   })
@@ -112,7 +112,7 @@ angular.module('myrestaurant', [
     views: {
       'menuContent': {
         templateUrl: 'templates/settings-languages.html',
-        controller: 'TranslateCtrl',
+        controller: 'TranslateController',
         controllerAs: 'translate'
       }
     }
@@ -121,7 +121,7 @@ angular.module('myrestaurant', [
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl',
+    controller: 'LoginController',
     controllerAs: 'login'
   })
 

@@ -1,10 +1,10 @@
 angular
       .module('myrestaurant.controllers')
-      .controller('AppCtrl', AppCtrl);
+      .controller('AppController', AppController);
 
-AppCtrl.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
+AppController.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
 
-function AppCtrl($state, $auth, $rootScope, CartService, LoginService){
+function AppController($state, $auth, $rootScope, CartService, LoginService){
   var vm = this;
 
   vm.CartService = CartService;
