@@ -1,8 +1,15 @@
-mrc.controller('TranslateCtrl', function($translate, $state, $ionicHistory) {
+angular
+      .module('myrestaurant.controllers')
+      .controller('TranslateCtrl', TranslateCtrl);
 
+TranslateCtrl.$inject = ['$translate', '$state', '$ionicHistory'];
+
+function TranslateCtrl($translate, $state, $ionicHistory){
   var vm = this;
 
-  vm.changeLanguage = function (langKey) {
+  vm.changeLanguage = changeLanguage;
+
+  function changeLanguage (langKey) {
     $translate.use(langKey);
 
     $ionicHistory.nextViewOptions({
@@ -11,6 +18,6 @@ mrc.controller('TranslateCtrl', function($translate, $state, $ionicHistory) {
 
     $state.go('app.home');
 
-  };
+  }
 
-});
+}

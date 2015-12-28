@@ -1,21 +1,19 @@
-mrc.controller('AppCtrl', ['$state', '$auth', '$rootScope', 'CartService', 'LoginService',
-                  function($state, $auth, $rootScope, CartService, LoginService) {
+angular
+      .module('myrestaurant.controllers')
+      .controller('AppCtrl', AppCtrl);
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+AppCtrl.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
 
+function AppCtrl($state, $auth, $rootScope, CartService, LoginService){
   var vm = this;
 
   vm.CartService = CartService;
   vm.LoginService = LoginService;
+  vm.isActive = isActive;
 
   //For navigation purposes
-  vm.isActive = function(stateName){
+  function isActive(stateName){
     return $state.includes(stateName);
-  };
+  }
 
-}]);
+}

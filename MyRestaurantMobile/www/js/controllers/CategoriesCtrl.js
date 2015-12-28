@@ -1,5 +1,10 @@
-mrc.controller('CategoriesCtrl', [ 'CategoryService', function(CategoryService) {
+angular
+      .module('myrestaurant.controllers')
+      .controller('CategoriesCtrl', CategoriesCtrl);
 
+CategoriesCtrl.$inject = ['CategoryService'];
+
+function CategoriesCtrl(CategoryService){
   var vm = this;
 
   vm.categories = [];
@@ -11,5 +16,4 @@ mrc.controller('CategoriesCtrl', [ 'CategoryService', function(CategoryService) 
     }
     vm.categories = CategoryService.data;
   });
-
-}]);
+}

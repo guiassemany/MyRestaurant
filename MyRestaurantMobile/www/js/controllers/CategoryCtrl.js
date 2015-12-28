@@ -1,8 +1,14 @@
-mrc.controller('CategoryCtrl', function($scope, $state, $stateParams, $ionicLoading, ItemService) {
+angular
+			.module('myrestaurant.controllers')
+			.controller('CategoryCtrl', CategoryCtrl);
 
+CategoryCtrl.$inject = ['$scope', '$state', '$stateParams', '$ionicLoading', 'ItemService'];
+
+function CategoryCtrl($scope, $state, $stateParams, $ionicLoading, ItemService){
 	var vm = this;
 
   vm.items = [];
+	vm.clearSearch = clearSearch;
 
 	vm.category_name = $stateParams.category_name;
 	vm.category_id = $stateParams.category_id;
@@ -13,8 +19,7 @@ mrc.controller('CategoryCtrl', function($scope, $state, $stateParams, $ionicLoad
 		  });
 	});
 
-	vm.clearSearch = function(){
+	function clearSearch(){
 		vm.searchItem = '';
-	};
-
-});
+	}
+}
