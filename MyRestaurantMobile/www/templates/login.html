@@ -1,8 +1,7 @@
-<ion-modal-view>
   <ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="AppCtrl.closeLogin()">Close</button>
+      <button class="button button-clear" ng-click="login.LoginService.closeLogin()">Cancel</button>
     </div>
   </ion-header-bar>
   <ion-content>
@@ -10,17 +9,16 @@
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
-          <input type="text" ng-model="AppCtrl.loginData.email" required>
+          <input type="text" ng-model="login.LoginService.loginData.email" required>
         </label>
         <label class="item item-input">
           <span class="input-label">Password</span>
-          <input type="password" ng-model="AppCtrl.loginData.password" required>
+          <input type="password" ng-model="login.LoginService.loginData.password" required>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="AppCtrl.doLogin('MyRestaurantAPI')" type="button">
+          <button class="button button-block button-positive" ng-click="login.LoginService.doLogin('MyRestaurantAPI')" type="button">
           Log in</button>
         </label>
       </div>
     </form>
   </ion-content>
-</ion-modal-view>

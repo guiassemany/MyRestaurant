@@ -117,6 +117,14 @@ angular.module('myrestaurant', [
       }
     }
   })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl',
+    controllerAs: 'login'
+  })
+
   ;
 
   // if none of the above states are matched, use this as the fallback
@@ -154,7 +162,7 @@ angular.module('myrestaurant', [
     }
 })
 .constant('apiConfig', {
-  base: 'http://myrestaurant.dev/api',
+  base: 'http://localhost:8000/api',
   auth: '/auth/authenticate',
   authUser: '/auth/user',
   categories: '/category/',

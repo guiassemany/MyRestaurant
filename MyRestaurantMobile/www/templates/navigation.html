@@ -9,7 +9,7 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-           <button  class="button button-icon icon ion-bag righthd-icon" ui-sref="app.cart" ng-hide="AppCtrl.isActive('app.cart')"></button>
+           <button  class="button button-icon icon ion-bag righthd-icon" ui-sref="app.cart" ng-hide="AppCtrl.AppCtrl.isActive('app.cart')"></button>
            <button  class="button button-icon icon ion-minus-circled" ng-click="AppCtrl.CartService.toggleDelete()" ng-show="AppCtrl.isActive('app.cart')"></button>
        </ion-nav-buttons>
     </ion-nav-bar>
@@ -25,25 +25,25 @@
           <img src="img/banner.jpg"  class="full-banner" />
       </div>
       <ion-list>
-        <ion-item menu-close ng-click="AppCtrl.login()" ng-if="!AppCtrl.isAuthenticated()">
-          Login
-        </ion-item>
-        <ion-item menu-close ui-sref="app.home" ng-class="{ active:isActive('app.home') }">
+        <ion-item menu-close ui-sref="app.home" ng-class="{ active:AppCtrl.isActive('app.home') }">
           {{ 'navigation.HOME' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.menu" ng-class="{ active:isActive('app.menu') }">
+        <ion-item menu-close ui-sref="app.menu" ng-class="{ active:AppCtrl.isActive('app.menu') }">
           {{ 'navigation.MENU' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.cart" ng-class="{ active:isActive('app.cart') }">
+        <ion-item menu-close ui-sref="app.cart" ng-class="{ active:AppCtrl.isActive('app.cart') }">
           {{ 'navigation.CART' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.contact" ng-class="{ active:isActive('app.contact') }">
+        <ion-item menu-close ui-sref="app.contact" ng-class="{ active:AppCtrl.isActive('app.contact') }">
           {{ 'navigation.CONTACT' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.settings" ng-class="{ active:isActive('app.settings') }">
+        <ion-item menu-close ui-sref="app.settings" ng-class="{ active:AppCtrl.isActive('app.settings') }">
           {{ 'navigation.SETTINGS' | translate }}
         </ion-item>
-        <ion-item menu-close ng-click="AppCtrl.logout()" ng-if="AppCtrl.isAuthenticated()">
+        <ion-item menu-close ui-sref="login" ng-hide="AppCtrl.LoginService.isAuthenticated()">
+          {{ 'navigation.LOGIN' | translate }}
+        </ion-item>
+        <ion-item menu-close ng-click="AppCtrl.LoginService.logout()" ng-show="AppCtrl.LoginService.isAuthenticated()">
           {{ 'navigation.LOGOUT' | translate }}
         </ion-item>
       </ion-list>
