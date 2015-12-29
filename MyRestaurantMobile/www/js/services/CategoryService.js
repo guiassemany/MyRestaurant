@@ -13,7 +13,7 @@ mrs.factory('CategoryService', [ '$http', '$ionicLoading', 'apiConfig', '$ionicP
   function getAllCategories() {
     var apiUrl = apiConfig.base + apiConfig.categories;
     $ionicLoading.show();
-    return $http.get(apiUrl, { cache: true}).then(success, error);
+    return $http.get(apiUrl, { cache: true, timeout: 5000}).then(success, error);
   }
 
   //Handles success callback

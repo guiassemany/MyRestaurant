@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    
+
     angular
           .module('myrestaurant.controllers')
           .controller('CategoriesController', CategoriesController);
@@ -19,5 +19,6 @@
         }
         vm.categories = CategoryService.data;
       });
+
     }
 })();

@@ -7,10 +7,8 @@
         <p>{{ category.description }}</p>
       </ion-item>
     </ion-list>
-    <div ng-if="category.error" class="row">
-      <div class="col col-100">
-        Displays error message.
-      </div>
+    <div ng-if="category.error" >
+      <div connection></div>
     </div>
   </ion-content>
 </ion-view>

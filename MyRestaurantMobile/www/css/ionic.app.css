@@ -71,6 +71,20 @@ $dark:                            #444 !default;
   /* fallback color */
   background: rgba(0, 0, 0, 0.7); }
 
+.no-connection-icon {
+  font-size: 150px;
+  color: #ccc; }
+
+.no-connection-text {
+  font-size: 20px;
+  color: #ccc; }
+
+.shadow {
+  box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
+  -webkit-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
+  -moz-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
+  -o-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
