@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col padding justifyMRA">
+				<div class="col padding">
 	  				{{item.item.description}}
 				</div>
 			</div>
@@ -42,12 +42,9 @@
 
 			</div>
 			<div class="row">
-				<div class="col">
-					<div class="list list-inset">
-					  <label class="item item-input">
-					    <input type="text" placeholder="Digite a Quantidade aqui">
-					  </label>
-					</div>
+				<div class="col text-center">
+					<p ng-show="item.cart.findItemQuantity(item) == 0">Atualmente, este item não está no seu carrinho.</p>
+					<p ng-show="item.cart.findItemQuantity(item) != 0"> Você tem {{item.cart.findItemQuantity(item)}} itens deste no carrinho </p>
 				</div>
 			</div>
 			<div class="row">

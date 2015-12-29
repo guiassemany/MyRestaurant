@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-		
+
 		angular
 					.module('myrestaurant.controllers')
 					.controller('CategoryController', CategoryController);

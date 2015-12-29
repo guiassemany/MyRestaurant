@@ -11,6 +11,7 @@
       var vm = this;
 
       vm.item = [];
+      vm.itemQuantity = 1;
 
       vm.cart = CartService;
 

@@ -8,6 +8,10 @@
       </ion-item>
     </ion-list>
     <div ng-if="category.error" >
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="category.doRefresh()">
+      </ion-refresher>
       <div connection></div>
     </div>
   </ion-content>

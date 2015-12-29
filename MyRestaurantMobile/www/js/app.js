@@ -162,7 +162,7 @@ angular.module('myrestaurant', [
     }
 })
 .constant('apiConfig', {
-  base: 'http://myrestaurant.dev/api',
+  base: 'http://localhost:8000/api',
   auth: '/auth/authenticate',
   authUser: '/auth/user',
   categories: '/category/',
