@@ -1,5 +1,5 @@
 <ion-view view-title="{{'global.MY_CART' | translate }}">
-  <ion-content>
+  <ion-content class="has-header has-footer">
     <ion-list show-delete="cart.CartService.shouldShowDelete"
           can-swipe="cart.listCanSwipe">
   <ion-item ng-repeat="item in cart.CartService.items track by $index"

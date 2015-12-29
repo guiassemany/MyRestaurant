@@ -162,7 +162,7 @@ angular.module('myrestaurant', [
     }
 })
 .constant('apiConfig', {
-  base: 'http://localhost:8000/api',
+  base: 'http://assemany.com/projeto/MyRestaurant/api',
   auth: '/auth/authenticate',
   authUser: '/auth/user',
   categories: '/category/',
