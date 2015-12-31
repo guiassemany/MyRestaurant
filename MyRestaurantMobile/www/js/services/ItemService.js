@@ -1,37 +1,44 @@
-mrs.factory('ItemService', [ '$http', '$ionicLoading', 'apiConfig', function($http, $ionicLoading, apiConfig){
+(function() {
+    'use strict';
 
-  // interface
-  var service = {
-      data: [],
-      getAllItemsByCategoryId: getAllItemsByCategoryId,
-      getItem: getItem
-  };
+    angular
+        .module('myrestaurant')
+        .factory('ItemService', ItemService);
 
-  return service;
+    ItemService.$inject = ['$http', '$ionicLoading', 'apiConfig'];
 
-  // implementation
-  function getAllItemsByCategoryId(category_id) {
-    var apiUrl = apiConfig.base + apiConfig.categories + category_id + apiConfig.items + apiConfig.includeImages;
-    $ionicLoading.show();
-    return $http.get(apiUrl, { cache: true})
-        .success(function(response) {
-            $ionicLoading.hide();
-            service.data = response.data;
-        });
+    /* @ngInject */
+    function ItemService($http, $ionicLoading, apiConfig) {
 
-  }
+        var service = {
+          data: [],
+          getAllItemsByCategoryId: getAllItemsByCategoryId,
+          getItem: getItem
+        };
 
-  function getItem(category_id, item_id) {
-    var apiUrl = apiConfig.base + apiConfig.categories + category_id + apiConfig.items + item_id + apiConfig.includeImages;
-    $ionicLoading.show();
-    return $http.get(apiUrl, { cache: true})
-        .success(function(response) {
-            $ionicLoading.hide();
-            service.data = response.data;
-        });
+        return service;
 
-  }
+        // implementation
+        function getAllItemsByCategoryId(category_id) {
+          var apiUrl = apiConfig.base + apiConfig.categories + category_id + apiConfig.items + apiConfig.includeImages;
+          $ionicLoading.show();
+          return $http.get(apiUrl, { cache: true})
+              .then(function(response) {
+                  $ionicLoading.hide();
+                  service.data = response.data.data;
+              });
 
+        }
 
+        function getItem(category_id, item_id) {
+          var apiUrl = apiConfig.base + apiConfig.categories + category_id + apiConfig.items + item_id + apiConfig.includeImages;
+          $ionicLoading.show();
+          return $http.get(apiUrl, { cache: true})
+              .then(function(response) {
+                  $ionicLoading.hide();
+                  service.data = response.data.data;
+              });
 
-}]);
+        }
+    }
+})();

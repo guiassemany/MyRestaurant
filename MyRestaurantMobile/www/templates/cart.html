@@ -20,7 +20,7 @@
       <ion-item ng-repeat="item in cart.CartService.items track by $index"
             class="item-thumbnail-left" >
 
-    <img ng-src="{{item.image}}" ui-sref="app.item({category_id: item.category_id, item_id: item.id})">
+    <img ng-src="{{item.images.data[0].image}}" ui-sref="app.item({category_id: item.category_id, item_id: item.id})">
     <h2>{{item.title}}</h2>
     <p>{{item.quantity}} X {{item.price}} = {{ item.quantity * item.price | currency}} </p>
     <p>{{item.description}}</p>

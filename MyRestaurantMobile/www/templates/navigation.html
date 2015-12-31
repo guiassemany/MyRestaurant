@@ -28,25 +28,25 @@
           <img src="img/banner.jpg"  class="full-banner" />
       </div>
       <ion-list>
-        <ion-item menu-close ui-sref="app.home" ng-class="{ active:AppCtrl.isActive('app.home') }">
+        <ion-item menu-close ui-sref="app.home" ng-class="{ active:AppController.isActive('app.home') }">
           {{ 'navigation.HOME' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.menu" ng-class="{ active:AppCtrl.isActive('app.menu') }">
+        <ion-item menu-close ui-sref="app.menu" ng-class="{ active:AppController.isActive('app.menu') }">
           {{ 'navigation.MENU' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.cart" ng-class="{ active:AppCtrl.isActive('app.cart') }">
+        <ion-item menu-close ui-sref="app.cart" ng-class="{ active:AppController.isActive('app.cart') }">
           {{ 'navigation.CART' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.contact" ng-class="{ active:AppCtrl.isActive('app.contact') }">
+        <ion-item menu-close ui-sref="app.contact" ng-class="{ active:AppController.isActive('app.contact') }">
           {{ 'navigation.CONTACT' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="app.settings" ng-class="{ active:AppCtrl.isActive('app.settings') }">
+        <ion-item menu-close ui-sref="app.settings" ng-class="{ active:AppController.isActive('app.settings') }">
           {{ 'navigation.SETTINGS' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="login" ng-hide="AppCtrl.LoginService.isAuthenticated()">
+        <ion-item menu-close ui-sref="login" ng-hide="AppController.LoginService.isAuthenticated()">
           {{ 'navigation.LOGIN' | translate }}
         </ion-item>
-        <ion-item menu-close ng-click="AppCtrl.LoginService.logout()" ng-show="AppCtrl.LoginService.isAuthenticated()">
+        <ion-item menu-close ng-click="AppController.LoginService.logout()" ng-show="AppController.LoginService.isAuthenticated()">
           {{ 'navigation.LOGOUT' | translate }}
         </ion-item>
       </ion-list>

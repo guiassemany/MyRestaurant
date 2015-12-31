@@ -2,4 +2,4 @@
 angular.module('myrestaurant.controllers', []);
 
 // MyRestaurantServices - mrs
-var mrs = angular.module('myrestaurant.services', []);
+angular.module('myrestaurant.services', []);
