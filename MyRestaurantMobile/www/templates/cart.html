@@ -1,8 +1,23 @@
 <ion-view view-title="{{'global.MY_CART' | translate }}">
   <ion-content class="has-header has-footer">
+
+    <div ng-show="cart.CartService.items.length == 0">
+      <div class="row">
+        <div class="col text-center">
+          <i class="icon ion-ios-cart-outline custom-icon no-connection-icon"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <p class="no-connection-text">{{'global.CART_IS_EMPTY' | translate}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="cart.CartService.items.length > 0">
     <ion-list show-delete="cart.CartService.shouldShowDelete"
           can-swipe="cart.listCanSwipe">
-  <ion-item ng-repeat="item in cart.CartService.items track by $index"
+      <ion-item ng-repeat="item in cart.CartService.items track by $index"
             class="item-thumbnail-left" >
 
     <img ng-src="{{item.image}}" ui-sref="app.item({category_id: item.category_id, item_id: item.id})">
@@ -51,6 +66,7 @@
       <span class="badge badge-light">{{cart.CartService.totalAmount() + 5 | currency}}</span>
     </span>
   </a>
+</div>
 </div>
 </ion-content>
   <div class="bar bar-footer bar-positive">

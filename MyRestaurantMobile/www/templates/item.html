@@ -42,12 +42,6 @@
 
 			</div>
 			<div class="row">
-				<div class="col text-center">
-					<p ng-show="item.cart.findItemQuantity(item) == 0">Atualmente, este item não está no seu carrinho.</p>
-					<p ng-show="item.cart.findItemQuantity(item) != 0"> Você tem {{item.cart.findItemQuantity(item)}} itens deste no carrinho </p>
-				</div>
-			</div>
-			<div class="row">
 				<div class="col">
 					<button class="button button-block icon-left ion-ios-cart button-positive" ng-click="item.cart.addItem(item.item, 1)">{{'global.ADD_TO_CART' | translate}}</button>
 				</div>

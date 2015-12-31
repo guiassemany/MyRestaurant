@@ -22,7 +22,8 @@
 		"ADD_TO_CART": "Add to Cart",
 		"PLACE_ORDER": "Place Order",
 		"NO_CONNECTION_ERROR": "Uh Oh! No internet connection!",
-		"TRY_AGAIN": "Try Again!"
+		"TRY_AGAIN": "Try Again!",
+		"CART_IS_EMPTY": "Your cart is empty!"
 	},
 	"navigation":{
 		"NAVIGATION": "Navigation",

@@ -23,6 +23,7 @@
     vm.toggleDelete       = toggleDelete;
     vm.setItemQuantity    = setItemQuantity;
     vm.findItemQuantity   = findItemQuantity;
+    vm.countItems         = countItems;
 
     // Add an item to the cart
      function addItem(item, quantity){
@@ -104,6 +105,10 @@
          }
        });
        return 0;
+     }
+
+     function countItems(){
+       return vm.items.length;
      }
 
     }

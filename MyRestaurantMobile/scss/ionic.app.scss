@@ -15,8 +15,6 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-$stable:                          #f8f8f8 !default;
-
 .fullscreen-image {
   max-width: 100%;
   max-height: 70%;
@@ -97,6 +95,60 @@ box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
 -webkit-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
 -moz-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
 -o-box-shadow: inset 0px 0px 10px 0px #ABABAB,5px 5px 5px 1px #DDDDDD;
+}
+
+.header-badge {
+    top: -35px !important;
+    left: 13px !important;
+    padding: 0px !important;
+    min-width: 5px !important;
+    margin-left: 15px !important;
+}
+
+.layer {
+  float: left;
+  position: absolute;
+  left:0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);;
+  padding: 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.categories-list {
+   border: 1px solid #DDDDDD;
+   width: 100%;
+   height: 100px;
+   position: relative;
+}
+
+.categories-list img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tag {
+   float: left;
+   position: absolute;
+   left:0px;
+   top: 20px;
+   right: 0px;
+   z-index: 1000;
+   background-color: transparent;
+   padding: 5px;
+   color: #FFFFFF;
+   font-weight: bold;
+   margin: 0 auto;
+   width: 200px;
+   height: 50px;
+   font-size: 20px;
 }
 
 // The path for our ionicons font files, relative to the built CSS in www/css

@@ -1,12 +1,20 @@
 <ion-view view-title="{{ 'global.CATEGORIES' | translate }}">
   <ion-content>
-    <ion-list>
+    <!-- ionic traditional style -->
+    <!-- <ion-list>
       <ion-item ng-repeat="category in category.categories" class="item-thumbnail-left" ui-sref="app.category({category_name: category.title ,category_id: category.id})">
         <img ng-src="{{ category.image }}">
         <h2>{{ category.title }}</h2>
         <p>{{ category.description }}</p>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+
+    <div class="categories-list" ng-repeat="category in category.categories" ui-sref="app.category({category_name: category.title ,category_id: category.id})">
+      <div class="layer"></div>
+       <div class="tag text-center">{{ category.title }}</div>
+       <img ng-src="{{ category.image }}"></img>
+    </div>
+
     <div ng-if="category.error" >
       <ion-refresher
         pulling-text="Pull to refresh..."
