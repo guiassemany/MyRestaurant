@@ -14,7 +14,8 @@ var notify = require("gulp-notify");
 var paths = {
   sass: ['./scss/**/*.scss'],
   appControllers: ['www/js/controllers/**/*.js','www/js/controllers/*/*.js'],
-  appServices: ['www/js/services/**/*.js','www/js/services/*/*.js']
+  appServices: ['www/js/services/**/*.js','www/js/services/*/*.js'],
+  appDirectives: ['www/js/directives/**/*.js','www/js/directives/*/*.js']
 };
 
 gulp.task('default', ['sass']);
@@ -59,11 +60,25 @@ gulp.task('myrestaurant-services', function() {
         .pipe(notify("MyRestaurant services compiled!"));
 });
 
+//Concatenate & Minify App
+gulp.task('myrestaurant-directives', function() {
+    return gulp.src(['www/js/directives/**/*.js', 'www/js/directives/*/*.js'])
+        .pipe(plumber())
+        .pipe(concat('appDirectives.js'))
+        .pipe(ngAnnotate())
+        //.pipe(uglify())
+        .pipe(rename('appDirectives.min.js'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('www/js'))
+        .pipe(notify("MyRestaurant directives compiled!"));
+});
+
 //Task that runs with ionic serve
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.appControllers, ['myrestaurant-controllers']);
   gulp.watch(paths.appServices, ['myrestaurant-services']);
+  gulp.watch(paths.appDirectives, ['myrestaurant-directives']);
 });
 
 gulp.task('install', ['git-check'], function() {

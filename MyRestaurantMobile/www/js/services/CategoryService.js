@@ -28,6 +28,7 @@
         function success (response){
               $ionicLoading.hide();
               service.data = response.data.data;
+              service.error = false;
         }
 
         //Handles error callback

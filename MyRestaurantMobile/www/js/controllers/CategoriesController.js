@@ -23,11 +23,15 @@
 
       function doRefresh() {
         CategoryService.getAllCategories().then(function() {
+
+          vm.error = false;
+
           if(CategoryService.error){
               vm.error = true;
           }
-          vm.error = false;
+
           vm.categories = CategoryService.data;
+
         }).finally(function() {
            // Stop the ion-refresher from spinning
            $rootScope.$broadcast('scroll.refreshComplete');
