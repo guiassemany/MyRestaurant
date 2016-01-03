@@ -67,6 +67,18 @@
           }
         }
       })
+
+      .state('app.orderDetails', {
+        url: '/orderDetails',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/order-details.html',
+            controller: 'OrderDetailsController',
+            controllerAs: 'order'
+          }
+        }
+      })
+
       .state('app.contact', {
         url: '/contact',
         views: {
@@ -97,6 +109,7 @@
         }
       }
     })
+
 
     .state('login', {
       url: '/login',

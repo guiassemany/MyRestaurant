@@ -4,6 +4,7 @@ namespace Restaurant\Api\V1\Controllers;
 
 use Restaurant\Api\V1\Models\Order;
 use Restaurant\Api\V1\Models\OrderItem;
+use Restaurant\Api\V1\Models\Item;
 use Restaurant\Api\V1\Models\OrderStatus;
 use Restaurant\Api\V1\Transformers\OrderTransformer;
 
@@ -26,8 +27,27 @@ class OrderController extends BaseController
 
     public function store(Request $request)
     {
-    	$order = Order::create($request->all());
-    	return $this->success('Pedido Criado');
+			$order = new Order;
+			$order->user_id = 1;
+			$order->order_status_id = 1;
+			$order->save();
+
+			//Get all the items
+			$data = $request->input('data');
+			$items = $data['items'];
+
+			foreach ($items as $key => $value) {
+				$arr[$key] = new OrderItem;
+				$arr[$key]->order_id = $order->id;
+				$arr[$key]->item_id = $value['id'];
+				$arr[$key]->quantity = $value['quantity'];
+				$arr[$key]->price = $value['price'];
+				//$arr[$key]->notes = $value['notes'];
+			}
+
+			$order->orderItems()->saveMany($arr);
+
+			return $this->success('Pedido Criado');
     }
 
     public function show($order_id)

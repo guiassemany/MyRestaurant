@@ -11,12 +11,13 @@
             year: ((new Date()).getFullYear()) // automatic current year (for copyright information)
         })
         .constant('apiConfig', {
-          base: 'http://assemany.com/projeto/MyRestaurant/api',
+          base: 'http://myrestaurant.dev/api',
           auth: '/auth/authenticate',
           authUser: '/auth/user',
           categories: '/category/',
           items: '/item/',
-          includeImages: '?include=images'
+          includeImages: '?include=images',
+          makeOrder: '/orders/'
         });
 
 })();

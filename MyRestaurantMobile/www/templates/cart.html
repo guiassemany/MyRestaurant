@@ -70,7 +70,7 @@
 </div>
 </ion-content>
   <div class="bar bar-footer bar-positive">
-  <button class="button button-clear icon-right ion-chevron-right pull-right">
+  <button ui-sref="app.orderDetails" class="button button-clear icon-right ion-chevron-right pull-right" ng-show="cart.CartService.items.length != 0">
     {{ 'global.PLACE_ORDER' | translate }}
   </button>
 </div>

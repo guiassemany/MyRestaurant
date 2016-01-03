@@ -6,6 +6,7 @@
 		"CONTACT": "Contact",
 		"ABOUT": "About",
 		"SEARCH": "Search",
+		"ORDER_DETAILS": "Order Details",
 		"NO_RESULTS_MATCH": "No results found for the keyword: ",
 		"LOGIN_ERROR_TITLE": "There was an error while trying to login",
 		"LOGIN_ERROR_MESSAGE": "Please, verify your credentials and try again.",

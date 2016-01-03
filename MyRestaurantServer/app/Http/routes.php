@@ -28,12 +28,10 @@ $api->version('v1',["namespace" => "Restaurant\Api\V1\Controllers" ], function (
 	//Resource for orders
 	$api->resource('orders', 'OrderController');
 
-
-
 	// Quick and Manual tests
 
 	// $api->get('newUser', function(){
-	// 		$user = new Restaurant\Models\User;
+	// 		$user = new Restaurant\Api\V1\Models\User;
 	// 		$user->name = 'Guilherme';
 	// 		$user->email = 'guilherme@assemany.com';
 	// 		$user->password = bcrypt('123');

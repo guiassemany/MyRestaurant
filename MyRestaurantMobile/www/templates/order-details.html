@@ -1,0 +1,45 @@
+<ion-view view-title="{{'global.ORDER_DETAILS' | translate }}">
+  <ion-content>
+    <div class="list">
+
+      <div class="item item-divider">
+        {{ 'global.ORDER_DETAILS' | translate }}
+      </div>
+
+      <a class="item" href="#">
+        Total
+        <span class="item-note">
+          <span class="badge badge-light">{{order.CartService.totalAmount() + 5 | currency}}</span>
+        </span>
+      </a>
+
+      <div class="item item-divider">
+        {{ 'global.PAYMENT_METHOD' | translate }}
+      </div>
+        <ion-radio ng-model="order.paymentMethod" ng-value="'A'">Money</ion-radio>
+        <ion-radio ng-model="order.paymentMethod" ng-value="'B'">Card</ion-radio>
+        <ion-radio ng-model="order.paymentMethod" ng-value="'C'">Paypal</ion-radio>
+    </div>
+    <div class="item item-divider">
+      {{ 'global.ORDER_SHIPPING_ADDRESS' | translate }}
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, masmsjdhe ksheojsomm, skd.
+        </p>
+      </div>
+      <div class="col col-20">
+        <a class="button button-icon icon ion-edit"></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button class="button button-block button-positive" ng-click="order.OrderService.makeOrder(order.CartService.items)">
+          {{ 'global.CONFIRM_ORDER' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

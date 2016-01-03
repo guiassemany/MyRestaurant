@@ -58,4 +58,9 @@ class Order extends Model
         return $this->hasManyThrough(\Restaurant\Api\V1\Models\Item::class, \Restaurant\Api\V1\Models\OrderItem::class, 'order_id', 'id');
        }
 
+
+       public function orderItems(){
+         return $this->hasMany(\Restaurant\Api\V1\Models\OrderItem::class);
+       }
+
 }

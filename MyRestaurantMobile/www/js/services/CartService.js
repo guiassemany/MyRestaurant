@@ -27,7 +27,6 @@
 
     // Add an item to the cart
     function addItem(item, quantity){
-
       //Verifies if product is already in cart
       var itemInCart = false;
 
@@ -107,6 +106,15 @@
 
      function countItems(){
        return vm.items.length;
+     }
+
+     function addNotesToItem(item, notes){
+       if(!notes){
+          item.notes = '';
+       }else{
+         item.notes = notes;
+       }
+
      }
 
     }

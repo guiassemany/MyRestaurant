@@ -12,6 +12,7 @@
       var vm = this;
 
       vm.CartService = CartService;
+      vm.CartService.addItem({id: 1, title: 'product', price: 20}, 1);
       vm.listCanSwipe = true;
 
     }
