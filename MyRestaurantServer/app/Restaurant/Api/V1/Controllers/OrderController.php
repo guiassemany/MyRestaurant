@@ -7,16 +7,21 @@ use Restaurant\Api\V1\Models\OrderItem;
 use Restaurant\Api\V1\Models\Item;
 use Restaurant\Api\V1\Models\OrderStatus;
 use Restaurant\Api\V1\Transformers\OrderTransformer;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 use Dingo\Api\Http\Request;
 
 class OrderController extends BaseController
 {
 
+		protected $user;
+
 		public function __construct()
 		{
-			//$this->middleware('api.auth');
+			$this->middleware('api.auth');
 			//$this->middleware('jwt.refresh');
+			//$this->user = JWTAuth::parseToken()->authenticate();
 		}
 
     public function index()
@@ -27,8 +32,11 @@ class OrderController extends BaseController
 
     public function store(Request $request)
     {
+			//Need to improve how to get user from Token and handle possible errors such as token expired.
+			$user = JWTAuth::parseToken()->authenticate();
+
 			$order = new Order;
-			$order->user_id = 1;
+			$order->user_id = $user->id;
 			$order->order_status_id = 1;
 			$order->save();
 

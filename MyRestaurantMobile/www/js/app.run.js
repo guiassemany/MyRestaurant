@@ -5,9 +5,9 @@
         .module('myrestaurant')
         .run(runBlock);
 
-        runBlock.$inject = ['$ionicPlatform', '$rootScope', '$state', '$stateParams', 'appConfig', 'LoginService'];
+        runBlock.$inject = ['$ionicPlatform', '$rootScope', '$state', '$stateParams', 'appConfig', 'AuthService'];
 
-        function runBlock($ionicPlatform, $rootScope, $state, $stateParams, appConfig, LoginService) {
+        function runBlock($ionicPlatform, $rootScope, $state, $stateParams, appConfig, AuthService) {
 
           $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -42,7 +42,7 @@
               var isLogin = toState.name === "login";
               if(isLogin){
 
-                  if(LoginService.isAuthenticated()){
+                  if(AuthService.isAuthenticated()){
                     e.preventDefault(); // stop current execution
                     $state.go('app.home'); // go to home
                   }
@@ -51,17 +51,20 @@
 
               }
 
-              //Make previous state always acessible via rootScope
+              //Make previous state always acessible via $rootScope
               $rootScope.$on('$locationChangeStart', function() {
                   $rootScope.previousState = fromState.name;
+              });
+
+              //Make intendend state always acessible via $rootScope
+              $rootScope.$on('$locationChangeStart', function() {
+                  $rootScope.intendedState = toState.name;
               });
 
 
               //Redirect if state requires auth and user is not authenticated
               if(typeof toState.data != 'undefined'){
-                console.log('a');
-                  if(toState.data.requireAuth === true && !LoginService.isAuthenticated()){
-                    console.log('b');
+                  if(toState.data.requireAuth === true && !AuthService.isAuthenticated()){
                     e.preventDefault(); // stop current execution
                     $state.go('login'); // go to login
                   }

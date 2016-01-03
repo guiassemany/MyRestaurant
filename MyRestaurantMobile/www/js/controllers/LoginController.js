@@ -5,10 +5,10 @@
           .module('myrestaurant.controllers')
           .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService'];
+    LoginController.$inject = ['AuthService'];
 
-    function LoginController(LoginService){
+    function LoginController(AuthService){
       var vm = this;
-      vm.LoginService = LoginService;
+      vm.AuthService = AuthService;
     }
 })();

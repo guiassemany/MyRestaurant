@@ -5,13 +5,13 @@
           .module('myrestaurant.controllers')
           .controller('AppController', AppController);
 
-    AppController.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'LoginService'];
+    AppController.$inject = ['$state', '$auth', '$rootScope', 'CartService', 'AuthService'];
 
-    function AppController($state, $auth, $rootScope, CartService, LoginService){
+    function AppController($state, $auth, $rootScope, CartService, AuthService){
       var vm = this;
 
       vm.CartService = CartService;
-      vm.LoginService = LoginService;
+      vm.AuthService = AuthService;
       vm.isActive = isActive;
 
       //For navigation purposes

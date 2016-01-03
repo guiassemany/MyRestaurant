@@ -3,12 +3,12 @@
 
     angular
         .module('myrestaurant')
-        .service('LoginService', LoginService);
+        .service('AuthService', AuthService);
 
-    LoginService.$inject = ['$state', '$ionicHistory', 'apiConfig', '$ionicLoading', '$auth', '$ionicPopup', '$filter', 'UserService', '$rootScope'];
+    AuthService.$inject = ['$state', '$ionicHistory', 'apiConfig', '$ionicLoading', '$auth', '$ionicPopup', '$filter', 'UserService', '$rootScope'];
 
     /* @ngInject */
-    function LoginService($state, $ionicHistory, apiConfig, $ionicLoading, $auth, $ionicPopup, $filter, UserService, $rootScope) {
+    function AuthService($state, $ionicHistory, apiConfig, $ionicLoading, $auth, $ionicPopup, $filter, UserService, $rootScope) {
 
         var vm = this;
 
@@ -17,18 +17,25 @@
 
         vm.doLogin         = doLogin;
         vm.closeLogin      = closeLogin;
+        vm.cancelLogin     = cancelLogin;
         vm.isAuthenticated = isAuthenticated;
         vm.logout          = logout;
         vm.showAlert       = showAlert;
+        vm.previousState   = $rootScope.previousState;
 
         //implementation
-
         function closeLogin() {
           $ionicHistory.nextViewOptions({
             disableBack: true
           });
-          //console.log();
-          $state.go($rootScope.previousState);
+          var stateToGo =  !$rootScope.intendedState ? 'app.home' : $rootScope.intendedState ;
+          $state.go(stateToGo);
+        }
+
+        //Cancel Login
+        function cancelLogin() {
+          var stateToGo =  !$rootScope.intendedState ? 'app.home' : $rootScope.intendedState ;
+          $state.go(stateToGo);
         }
 
         // Perform the login action when the user submits the login form
@@ -48,9 +55,7 @@
             $ionicLoading.hide();
             vm.showAlert('global.LOGIN_ERROR_TITLE', 'global.LOGIN_ERROR_MESSAGE');
             vm.loginData.password = null;
-
           });
-
         }
 
         //Verify if user is authenticated
@@ -66,7 +71,6 @@
         }
 
         function showAlert(title, message) {
-
                //Translates title and message
                var titleTranslated = $filter('translate')(title);
                var messageTranslated = $filter('translate')(message);

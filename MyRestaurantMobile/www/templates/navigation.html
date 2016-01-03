@@ -43,10 +43,10 @@
         <ion-item menu-close ui-sref="app.settings" ng-class="{ active:AppController.isActive('app.settings') }">
           {{ 'navigation.SETTINGS' | translate }}
         </ion-item>
-        <ion-item menu-close ui-sref="login" ng-hide="AppController.LoginService.isAuthenticated()">
+        <ion-item menu-close ui-sref="login" ng-hide="AppController.AuthService.isAuthenticated()">
           {{ 'navigation.LOGIN' | translate }}
         </ion-item>
-        <ion-item menu-close ng-click="AppController.LoginService.logout()" ng-show="AppController.LoginService.isAuthenticated()">
+        <ion-item menu-close ng-click="AppController.AuthService.logout()" ng-show="AppController.AuthService.isAuthenticated()">
           {{ 'navigation.LOGOUT' | translate }}
         </ion-item>
       </ion-list>
