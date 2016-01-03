@@ -27,7 +27,8 @@
           $ionicHistory.nextViewOptions({
             disableBack: true
           });
-          $state.go('app.home');
+          //console.log();
+          $state.go($rootScope.previousState);
         }
 
         // Perform the login action when the user submits the login form

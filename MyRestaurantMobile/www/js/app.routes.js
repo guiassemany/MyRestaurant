@@ -76,6 +76,9 @@
             controller: 'OrderDetailsController',
             controllerAs: 'order'
           }
+        },
+        data: {
+          "requireAuth": true
         }
       })
 
